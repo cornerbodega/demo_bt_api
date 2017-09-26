@@ -1,0 +1,30 @@
+<!--
+<div layout-padding></div>
+<div class="pnText"></div>
+<div layout-padding></div> -->
+<div layout-padding></div>
+
+<div class="container">
+    <!-- {{chartData}} -->
+    <fieldset>
+        <legend align="center">{{to.label}} <span ng-show="model.reportPeriod">{{model.reportPeriod}}</span></legend>
+        <div style="height:500px; width: 500px">
+            <canvas pn-bar-chart id='myChart' width='400' height='400'></canvas>
+
+        </div>
+        <div layout-padding></div>
+        <!-- <pre>{{chartData|json}}</pre> -->
+        <table>
+            <tr class="pnStrong">
+                <td>Total</td>
+                <td>{{chartData.frontUnits}}{{reportSum|number:2}}{{chartData.backUnits}}</td>
+            </tr>
+            <tr ng-repeat="data in chartData.data track by $index">
+                <td>{{chartData.labels[$index]}}</td>
+                <td>{{chartData.frontUnits}}{{data|number:2}}{{chartData.backUnits}}</td>
+            </tr>
+        </table>
+    </fieldset>
+
+
+</div>

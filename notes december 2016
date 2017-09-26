@@ -1,0 +1,34 @@
+Potnet Dotnet
+
+
+Needs to be incorporated.
+    Does it? Can't it be part of Luchini Supercritical? Yes.
+
+Needs relationships to be built with growers and retailers
+Order Management System
+
+
+
+Growers Processors
+    Traceability
+    Potnet OMS (Create Listing)
+Retailers
+    Potnet OMS (Place Orders)
+
+Customers
+    Leave Reviews by Barcode ID
+    rankmydank.com
+    accepts state and barcode id
+    All states
+    Door for traceability contracts
+
+How will data work for all this?
+Mysql http php js
+
+pnDB.saveToDB
+pnDB.getFromDB
+
+Hosted mysql? Later.
+
+Tables
+Retailer Orders (from your processor)

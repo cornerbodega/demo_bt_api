@@ -1,0 +1,244 @@
+<!-- Manifests -->
+<!-- manifest -->
+<!-- <div flex>
+<md-input-container>
+<label><i class="fa fa-search"></i> Search</label>
+<input ng-change="searching()" ng-model="search" />
+</md-input-container>
+</div> -->
+
+<!-- {{model.manifests}} -->
+<div class="layout-padding"></div>
+<div class="container">
+
+    <pn-print-manifest to-print="manifestDetails" />
+    <div class="layout-padding"></div>
+    <div class="layout-padding"></div>
+    <div class="layout-padding"></div>
+    <div id="manifestDetails" ng-repeat="manifest in model.manifests" class="">
+
+        <table style="border:1px solid black;">
+
+
+            <tr>
+                <td style="border:1px solid black;" ><center><div class="pnTitleText">Washington State Marijuana Manifest</div></center></td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="border:1px solid black;">
+                        <tr>
+                            <td style="border:1px solid black;"><b>Date:</b></td>
+                            <td style="border:1px solid black;"><center>{{manifest.sessiontimeLabel}}</center></td>
+                            <td style="border:1px solid black;"><b>License #:</b></td>
+                            <td style="border:1px solid black;"><center>{{manifest.origination_license_number}}</center></td>
+                            <td rowspan="4" style="border:1px solid black;">
+                                <div class="">
+                                    <pn-barcode height="75" barcode="manifest.manifestid" />
+                                </div>
+                                <div class="">
+                                    <center>{{manifest.manifestid}}</center>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid black;"><b>Licensee Name</b></td>
+                            <td style="border:1px solid black;"><center>{{manifest.origination_name}}</center></td>
+                            <td style="border:1px solid black;"><b>Vehicle:</b></td>
+                            <td style="border:1px solid black;"><center>{{manifest.transporter_vehicle_details}}</center></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid black;"><b>Licensee Address</b></td>
+                            <td style="border:1px solid black;"><center>{{manifest.origination_street}} {{manifest.origination_city}}, {{manifest.origination_state}}, {{manifest.origination_zip}}</center></td>
+                            <td style="border:1px solid black;"><b>Transporter Name:</b></td>
+                            <td style="border:1px solid black;"><center>{{manifest.transporter_name}}</center></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid black;"><b>Licensee Phone</b></td>
+                            <td style="border:1px solid black;"><center>{{manifest.origination_phone |bcTelephone:'format'}}</center></td>
+                            <td style="border:1px solid black;"><b>Transporter DOB:</b></td>
+                            <td style="border:1px solid black;"><center>{{manifest.transporter_dob}}</center></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid black;"><b>Transporter ID</b></td>
+                            <td style="border:1px solid black;"><center>{{manifest.transporter_id}}</center></td>
+                            <td style="border:1px solid black;"><b>Transporter Signature</b></td>
+                            <td colspan="2"><div layout-padding></div></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <!-- <tr>
+                <td></td>
+            </tr> -->
+            <!-- <table style="border:1px solid black;"><tr><td><div layot-padding></div></td></tr></table> -->
+            <tr>
+                <td>
+                    <table ng-repeat="stop in manifest.stops" style="border:1px solid black;">
+                        <tr>
+                            <td  colspan="4"><b>Stop #{{$index+1}} of {{manifest.stops.length}} ({{stop.items.length}} items)</b></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid black;"><b>Destination Licensee Name:</b></td>
+                            <td style="border:1px solid black;"><center>{{stop.name}}</center></td>
+                            <td style="border:1px solid black;"><b>Approx. Departure Date/Time</b></td>
+                            <td style="border:1px solid black;"><center>{{getdatestringfor(stop.depart_time)}}</center></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid black;"><b>Destination Licensee #:</b></td>
+                            <td style="border:1px solid black;"><center>{{stop.license_number}}</center></td>
+                            <td style="border:1px solid black;"><b>Approx. Arrival Date/Time</b></td>
+                            <td style="border:1px solid black;"><center>{{getdatestringfor(stop.arrive_time)}}</center></td>
+
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid black;"><b>Destination Licensee Address:</b></td>
+                            <td style="border:1px solid black;"><center>{{stop.street}} {{stop.city}}, {{stop.state}}, {{stop.zip}}</center></td>
+                            <td  style="border:1px solid black;" rowspan="2" colspan="2"></td>
+
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid black;"><b>Destination Licensee Phone:</b></td>
+                            <td style="border:1px solid black;"><center>{{stop.phone |bcTelephone:'format'}}</center></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" >* These directions are for planning purposes only. You may find that the suggested route takes you outside the State of
+                                Washington; per RCW 69.50.342 you must plan your route so that you remain within the State of Washington at all times.
+                            </td>
+                        </tr>
+
+                        <tr style="border:1px solid black;" >
+                            <td  colspan="4"><b>Travel Route:</b></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"><center>{{stop.travel_route}}</center></td>
+                        </tr>
+                        <tr style="border:1px solid black;">
+                            <td  colspan="3">Stop {{$index+1}}, items 1-{{stop.items.length}}</td>
+                            <td colspan="1">Manifest ID {{manifest.manifestid}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <table  style="border:1px solid black; width:100%">
+                                    <tr>
+                                        <td style="border:1px solid black;"><b><center>#</center></b></td>
+                                        <td style="border:1px solid black;"><b><center>Batch / Lot ID</center></b></td>
+                                        <td style="border:1px solid black;"><b><center>Item Description</center></b></td>
+                                        <td style="border:1px solid black;"><b><center>Shipped</center></b></td>
+                                        <td style="border:1px solid black;"><b><center>Received</center></b></td>
+                                    </tr>
+                                    <tr ng-repeat="item in stop.items">
+                                        <td style="border:1px solid black;"><center><b>{{$index+1}}</b></center></td>
+                                        <td style="border:1px solid black;"><center>{{item.inventoryid}}</center></td>
+                                        <td style="border:1px solid black;"><center>{{item.description}}</center></td>
+                                        <td style="border:1px solid black;"><center>{{item.quantity}}</center></td>
+                                        <td style="border:1px solid black;"></td>
+                                        <!-- <td><center><div ng-show="!!item.price">{{item.price}} ({{item.priceperunit}} per unit)</div></center></td> -->
+
+
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+
+
+
+                <!-- <fieldset >
+                <legend align="center">Washington State Marijuana Manifest #{{manifest.manifestid}} </legend>
+                <div >
+                <table>
+
+                <tr>
+                <td>Manifest Barcode</td>
+                <td><pn-barcode barcode="manifest.manifestid" /></td>
+            </tr>
+            <tr>
+            <td>
+            <b>Created</b>
+        </td>
+        <td>
+        {{manifest.sessiontimeLabel}}
+    </td>
+</tr>
+
+<tr>
+<td><b>Transporter</b></td>
+<td>{{manifest.transporter_name}}, DOB {{manifest.transporter_dob}}</td>
+
+</tr>
+<tr>
+<td><b>Vehicle</b></td>
+<td>{{manifest.transporter_vehicle_details}}</td>
+</tr>
+<tr>
+<td><b>From</b></td>
+<td>
+<b>{{manifest.origination_name}}</b>
+<br /> I-502 License # {{manifest.origination_license_number}}
+<br />{{manifest.origination_street}} {{manifest.origination_city}}, {{manifest.origination_state}}, {{manifest.origination_zip}}
+<br />{{manifest.origination_phone |bcTelephone:'format'}}</td>
+</td>
+</tr>
+
+<tr ng-repeat="stop in manifest.stops">
+<td>
+<b>Stops</b>
+</td>
+<td>
+<b>{{stop.name}}</b>
+<br />I-502 License # {{stop.license_number}}
+<br />{{stop.street}} {{stop.city}}, {{stop.state}}, {{stop.zip}}
+<br />Phone: {{stop.phone |bcTelephone:'format'}}
+<br />Depart: {{getdatestringfor(stop.depart_time)}}
+<br />Arrive: {{getdatestringfor(stop.arrive_time)}}
+
+</td>
+
+
+</tr>
+<tr ng-repeat="stop in manifest.stops">
+<td>
+<b>Inventory for {{stop.name}}</b>
+</td>
+<td>
+<div  ng-repeat="item in stop.items">
+<div layout-margin>
+<div class="">{{item.description}} x {{item.quantity}}</div>
+<div ng-show="!!item.price">{{item.price}} ({{item.priceperunit}} per unit)</div>
+<div>{{item.inventoryid}}</div>
+
+</div>
+
+<div>
+<pn-barcode barcode="item.inventoryid" />
+</div>
+<br/>
+</div>
+</td>
+
+</tr>
+
+</table>
+</div>
+</div>
+</fieldset> -->
+
+</div>
+</div>
+
+
+<!-- <pn-barcode barcode="item.inventoryid"></my-barcode>
+
+<div>
+<div >
+</div>
+</div>
+<div>
+<div>
+
+</div>
+</div>
+-->

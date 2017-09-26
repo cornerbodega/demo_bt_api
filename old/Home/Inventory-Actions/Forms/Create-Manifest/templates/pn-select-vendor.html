@@ -1,0 +1,47 @@
+<!-- {{to.options}} -->
+
+<div class="input-field col s6">
+    <!-- <input-container> -->
+        <input id="{{options.key}}" type="text" ng-model="vendorsearch">
+        <label for="{{options.key}}">
+        <span><i class="fa fa-search"></i> {{to.label}}</span>
+    </label>
+
+    <!-- </input-container> -->
+
+    <div layout-padding>
+        <span ng-show="model.vendors">Selected {{to.label}}: <span ng-repeat="selected in model.vendors">{{selected.name}}<span ng-if="!$last">, <span></span></span>
+    </div>
+</div>
+<!-- <div ng-show="search" ng-repeat="vendor in vendors|filter: vendorsearch">
+{{vendor.name}} {{vendor.type}} {{vendor.address1}}
+
+
+</div> -->
+<div class="repeater-container">
+    <div ng-show="!pnData">Loading...</div>
+    <div vs-repeat layout-padding>
+        <div ng-repeat="vendor in vendors|filter: search"
+        ng-click="select(vendor)" ng-class="vendor.$selected ? 'md-3-line green darken-3 white-text' : ''" layout="row" >
+
+        <div flex layout="row">
+            <div flex>
+                <ul>
+                    <li>{{vendor.name}}</li>
+                </ul>
+            </div>
+            <div flex>
+                <ul>
+                    <li>{{vendor.type}}</li>
+                </ul>
+            </div>
+            <div flex>
+                <ul>
+                    <li>{{vendor.address1}}</li>
+                    <li ng-if="vendor.address2">{{vendor.address2}}</li>
+                    <li>{{vendor.city}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

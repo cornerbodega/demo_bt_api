@@ -1,0 +1,25 @@
+<!--
+<div layout-padding></div>
+<div class="pnText"></div>
+<div layout-padding></div> -->
+<div layout-padding></div>
+
+<div class="container">
+    <!-- {{chartData}} -->
+    <fieldset>
+        <legend align="center">{{to.label}}</legend>
+        <md-input-container>
+            <md-select aria-label="report period" ng-model="model.reportPeriod">
+                <md-option aria-label="report period" ng-repeat="period in reportPeriods"  ng-value="period" >
+                    {{period}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <!-- <div style="height:500px; width: 500px">
+            <canvas pn-bar-chart id='myChart' width='400' height='400'></canvas>
+
+        </div> -->
+    </fieldset>
+
+
+</div>

@@ -1,0 +1,10 @@
+wa(){ cd ~/public_html/abctraceability/wa;}
+vb(){ vi ~/.bash_profile;}
+sb(){ source ~/.bash_profile;}
+alias ..='cd ../'
+alias l='ls -ltr'
+export PS1="\W\\$ "
+alias c='clear'
+chdphp(){ find . -type d -exec chmod 755 {} \;;}
+chfphp(){ find . -type f -exec chmod 644 {} \;;}
+alias cb='cp ~/public_html/abctraceability/wa/bash_profile_backup/bash_profile ~/.bash_profile'

@@ -1,0 +1,51 @@
+<!-- {{selectedPlan}} -->
+<center>
+
+<div class="pnGrey">
+
+    <div class="container">
+
+            <pnlp />
+            <img src="img/dopelogo/white-bg/dopelogo-white-bg.png" style="width:auto; height:65px;" >
+
+            <pnlp />
+            <!-- Subscriptions in this order will Start on 6/4/2017 and Renew on 6/3/2018 -->
+
+            <div class="pnTitleText">
+                Select a Subscription Plan
+            </div>
+            <!-- <pnlp /> -->
+
+            <md-input-container>
+                <md-select aria-label="plans" ng-change="planChange()" ng-model="selectedPlan">
+                    <md-option aria-label="{{plan.label}}" ng-repeat="plan in plans" ng-value="plan"> {{plan.label}} </md-option>
+                </md-select>
+            </md-input-container>
+            <!-- <pnlp /> -->
+
+            <div>
+                <md-input-container>
+                    <div layout="row" flex>
+                        <div flex></div>
+                        <div class="">
+                            <md-checkbox ng-click="toggleTerms()" ng-checked="terms">I agree to the </md-checkbox>
+                        </div>
+                        <div >
+                            &nbsp;
+                        </div>
+                        <div class="">
+                            <u ng-click="openTerms()">Master Subscription Agreement.</u>
+                        </div>
+                        <div flex></div>
+
+                    </div>
+                </md-input-container>
+            </div>
+            <!-- <pnlp /> -->
+
+            <button ng-disabled="!terms" class="btn btn-lg" ng-click="toCheckout()">Next</button>
+            <pnlp />
+        </div>
+
+    </div>
+</center>

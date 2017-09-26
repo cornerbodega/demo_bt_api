@@ -1,0 +1,29 @@
+<pn-path-nav />
+<!-- {{quote}} -->
+<div class="pnGrey">
+    <center>
+
+        <!-- <div layout-padding></div> -->
+
+    <form ng-submit="onSubmit($event)" onsubmit='return false;' name="inputform" novalidate>
+    <formly-form model="pnFormlyModel" fields="pnFormlyFields" options="pnFormlyOptions" form="inputform">
+        <!-- <div class="md-padding greenboard-floater"> -->
+            <!-- <center><button ng-show="pnData" flex type="submit" class="btn btn-raised potnetRed">Submit</button></center> -->
+        <!-- </div> -->
+    </formly-form>
+    </form>
+    </center>
+    <div flex="25"  layout-padding ng-click="showModel=!showModel">
+
+    </div>
+    <div layout-padding></div>
+    <div ng-show="showModel" class="">
+    <pre>{{pnFormlyModel |json}}</pre>
+    </div>
+
+<div layout-padding>
+
+</div>
+</div>
+
+<pn-footer />

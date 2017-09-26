@@ -1,0 +1,60 @@
+<pn-path-nav />
+<!-- {{requests}} -->
+<!-- <ul ng-repeat="request in requests">
+<li>{{request.requester_name}}</li>
+</ul> -->
+<div class="container">
+    <div layout-padding></div>
+    <center>{{error}}</center>
+    <!-- <center>{{requestedWts}}</center> -->
+    <div ng-repeat="listing in requestedWts">
+        <fieldset class="pnGreenDarken3 z-depth-1">
+            <legend class="pnGreenDarken3 white-text pnText" layout-padding><div><b>${{listing.price}} {{listing.item_type}} {{listing.item_strain}} {{listing.item_type}} {{listing.amount}} {{listing.item_id}}</b> </div></legend>
+            <center>
+                <div layout-padding></div>
+
+            <div layout="row" >
+                <div flex="25" ng-show="listing.image != 0">
+                    <img ng-src="{{listing.image}}" style="width:100%; height:auto;" />
+                </div>
+                <div layout-padding ng-show="listing.image != 0"></div>
+                <div flex>
+                    <div   ng-repeat="request in listing.requests">
+                        <!-- <div class="">
+                            <md-checkbox aria-label="accept this request" ng-model="request.$selected" ng-change="toggleAcceptRequest(listing, request)" />
+                        </div> -->
+                        <div layout-padding ng-click="toggleAcceptRequest(listing, request)" ng-class="classForRequest(request)">
+                            <!-- <div layout-padding></div> -->
+
+                            <div class="">
+                                {{request.requester_full_name}}
+                            </div>
+                            <div class="">
+                                {{request.message}}
+                            </div>
+                            <div class="">
+                                {{request.at | timeAgo}} on
+                                {{request.at | date:'MM/dd/yyyy'}}
+                            </div>
+
+                            <!-- <div layout-padding></div> -->
+
+                        </div>
+
+                        <div layout-padding></div>
+                    </div>
+                </div>
+            </div>
+            <div layout-padding></div>
+
+            <div ng-class="classForGenerateManifestButton(listing)" ng-click="toGenerateManifestForRequest(listing)" flex>
+                <md-button ng-disabled="requestButtonDisabledForListing(listing)">Generate Manifest</md-button>
+            </div>
+        </center>
+
+        </fieldset>
+
+        <div layout-padding></div>
+    </div>
+
+</div>

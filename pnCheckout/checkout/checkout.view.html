@@ -1,0 +1,51 @@
+<div class="pnGrey">
+
+<div class="container">
+<center>
+    <pnlp />
+    <!-- <pnlp /> -->
+    <img src="img/dopelogo/white-bg/dopelogo-white-bg.png" style="width:auto; height:65px;" >
+    <pnlp />
+
+
+    <table>
+        <tr>
+
+        </tr>
+        <tr class="pnStrong">
+            <td>Product</td>
+            <td style="text-align:right"># Users</td>
+            <td style="text-align:right">Subscription Term (Months)</td>
+            <td style="text-align:right">Billing Term (Months)</td>
+            <td style="text-align:right">Monthly/Unit Price</td>
+            <td style="text-align:right">Sale Price</td>
+
+        </tr>
+        <tr>
+            <td >{{plan.label}}</td>
+            <td style="text-align:right"><i>Unlimited</i></td>
+            <td style="text-align:right">{{plan.orderTerm}}</td>
+            <td style="text-align:right">{{plan.billingTerm}}</td>
+            <td style="text-align:right">{{plan.price / 100 | currency}}</td>
+            <td style="text-align:right">{{(plan.price * plan.billingTerm) / 100 | currency}}</td>
+        </tr>
+    </table>
+    <pnlp />
+
+    <form  action="{{planUrl}}" method="POST">
+      <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_QmxMu9yKt8uPVUfnx6WjMMdS"
+        data-image="https://abctraceability.com/wa/img/dopelogo/favicon.png"
+        data-name="ABC Traceability Subscription"
+        data-description="{{plan.label}}"
+        data-amount="{{plan.price * plan.billingTerm}}"
+        data-label="Sign Me Up!"
+        >
+      </script>
+    </form>
+</center>
+<pnlp />
+</div>
+
+</div>

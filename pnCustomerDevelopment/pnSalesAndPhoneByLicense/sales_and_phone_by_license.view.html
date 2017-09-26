@@ -1,0 +1,109 @@
+<div class="pnGrey">
+    <div class="container">
+        <!-- {{model}} -->
+        <!-- <pn-loading-gears  size="small" /> -->
+        <div ng-hide="pnData">
+            <pnlp />
+            <pnlp />
+            <pnlp />
+            <md-progress-linear ng-hide="pnData" md-mode="indeterminate"></md-progress-linear>
+            <pnlp />
+            <pnlp />
+            <pnlp />
+        </div>
+        <!-- <md-table-container> -->
+            <!-- <pre>{{prospects[0] | json}}</pre> -->
+
+            <table  md-table  ng-model="selected"  md-progress="promise">
+                <tr>
+                    <td><input ng-model="search"></td>
+
+                </tr>
+                <thead md-head md-order="myOrder">
+                    <tr md-row class="pnStrong">
+                        <td md-column md-order-by="notes">Notes</td>
+                        
+                        <td md-column md-numeric>Phone</td>
+                        <td md-column md-order-by="vendorName">Tradename</td>
+                        <td md-column md-order-by="producerSalesById">All Sales</td>
+                        <td md-column md-order-by="producerAvgSalesById">Avg $Sales/Mo</td>
+                        <td md-column md-order-by="producerNumMonthsById"># Rev Months</td>
+                        <td md-column md-order-by="producerSalesById">Type</td>
+
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row ng-click="browseClick($event,prospect)"  dir-paginate="prospect in prospects| filter:search |itemsPerPage: 10| orderBy: myOrder">
+                        <td md-cell>
+                            <div ng-repeat="note in notesByConcerningId[prospect.id]">
+                                {{note.content}}
+                            </div>
+                        </td>
+                        <td md-cell><a ng-href="tel:{{prospect.phone}}">{{prospect.phone | bcTelephone:'format'}}</a></td>
+
+                        <td md-cell>{{prospect.vendorName}}</td>
+                        <td md-cell>{{prospect.producerSalesById | currency}}</td>
+                        <td md-cell>{{prospect.producerAvgSalesById | currency}}</td>
+                        <td md-cell>{{prospect.producerNumMonthsById }}</td>
+                        <td md-cell>{{prospect.type}}</td>
+
+
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td colspan="3" ><dir-pagination-controls></dir-pagination-controls> </td>
+
+                    </tr>
+
+                </tfoot>
+
+            </table>
+        <!-- </md-table-container> -->
+        <!-- <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{prospects.length}}" md-on-paginate="getProspects" md-page-select></md-table-pagination> -->
+
+    </div>
+    <!--
+    <div ng-repeat="prospect in prospects"  class="">
+
+        <div  layout="row" layout-padding ng-click="showDetails=!showDetails">
+            <div>{{prospect.vendorName}}</div>
+
+            <div>{{prospect.type}}</div>
+
+            <div>{{prospect.phone}}</div>
+
+
+        </div>
+        <div ng-if="showDetails"  layout-padding>
+            <table>
+                <tr class="pnStrong">
+                    <td>Tradename</td>
+                    <td>All Sales</td>
+                    <td>Avg $Sales/Mo</td>
+                    <td># Rev Months</td>
+                    <td>Type</td>
+                    <td>License#</td>
+                    <td>Phone</td>
+
+                </tr>
+                <tr >
+                    <td>{{prospect.vendorName}}</td>
+                    <td>{{prospect.producerSalesById | currency}}</td>
+                    <td>{{prospect.producerAvgSalesById | currency}}</td>
+                    <td>{{prospect.producerNumMonthsById }}</td>
+                    <td>{{prospect.type}}</td>
+                    <td>{{prospect.license}}</td>
+                    <td>{{prospect.phone}}</td>
+
+                </tr>
+
+
+            </table>
+
+
+        </td>
+    </div> -->
+
+</div>

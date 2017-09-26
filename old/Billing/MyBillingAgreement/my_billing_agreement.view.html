@@ -1,0 +1,16 @@
+<pn-path-nav />
+<center>
+    <div class="container">
+        <div layout-padding></div>
+        <div ng-show="currentSubscriber">
+            Potnet Subscription: Active
+        </div>
+        <div class="">
+            Days left in billing cycle
+        </div>
+        <div class="">
+            <!-- {{myBillingAgreement}} -->
+            <pn-mini-details-table data="myBillingAgreement.GetBillingAgreementDetailsResult.BillingAgreementDetails" />
+        </div>
+    </div>
+</center>

@@ -1,0 +1,27 @@
+<div class="pnGrey">
+    <div class="container">
+
+        <!-- {{opportunities}} -->
+        <div ng-repeat="opportunity in opportunities">
+            <div class="">
+                {{opportunity.vendorName}}
+            </div>
+            <div class="">
+                {{opportunity.type}}
+            </div>
+            <div class="">
+                {{opportunity.producerAvgSalesById | currency}}
+            </div>
+            <div class="">
+                {{opportunity.phone | bcTelephone:'format'}}
+            </div>
+            <pnlp />
+            <button class="btn" ng-click="addNotes()">
+                <i class="fa fa-plus pull-left "></i>
+                Notes
+            </button>
+        <pnlp />
+
+        </div>
+    </div>
+</div>

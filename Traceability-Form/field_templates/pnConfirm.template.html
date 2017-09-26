@@ -1,0 +1,46 @@
+<!-- <center> -->
+    <!-- <div class="container"> -->
+        <!-- <span > -->
+            <md-dialog aria-label="List dialog" class="pnGrey">
+                <md-dialog-content >
+
+                    <center>
+                        <!-- <div class="pnTitleText pnText">Confrim</div> -->
+                    <div class="">
+                        <h5>  The <a ng-click="openInNewTab('http://lcb.wa.gov/mj2015/traceability_system')">Washington State Liquor and Cannabis Board Traceability Server</a> will receive the following update: </h5>
+                    </div>
+                    </center>
+                    <md-content flex >
+                        <!-- {{}} -->
+                        <!-- <pre style="display: inline-block; text-align: left">{{inputmodel | json}}</pre> -->
+                        <pn-details-table data="[inputmodel]">
+                            <!-- <div class="layout-padding"></div> -->
+
+                    </md-content>
+                </md-dialog-content>
+                <md-dialog-actions>
+
+                    <div class="md-tasks" layout="row" flex>
+                        <div>
+
+                            <md-button ng-click="confirm.cancel()" class="deep-orange darken-4 white-text md-raised">
+                                Cancel
+                            </md-button>
+                        </div>
+                        <div flex>
+                        </div>
+
+                        <div>
+                            <md-button ng-click="confirm.submit()" class="green darken-3 white-text md-raised">
+                                Confirm
+                            </md-button>
+
+                        </div>
+
+                    </div>
+                </md-dialog-actions>
+
+            </md-dialog>
+        <!-- </div> -->
+    <!-- </div> -->
+    <!-- <center> -->

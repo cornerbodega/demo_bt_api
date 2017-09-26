@@ -1,0 +1,75 @@
+
+<div flex ng-cloak>
+    <md-grid-list
+    layout-fill
+    md-cols-xs="1"
+    md-cols-sm="2"
+    md-cols-md="5"
+    md-cols-gt-md="5"
+    md-row-height="3:3"
+    md-gutter="8px" md-gutter-gt-sm="8px" >
+        <md-grid-tile ng-repeat="option in boxes"
+        md-rowspan="{{option.row}}"
+        md-colspan="{{option.col}}"
+        class="{{option.color}}"
+
+        >
+        <md-grid-tile-header layout-margin ng-click="selectBox(option.id)">{{option.l}}</md-grid-tile-header>
+        <div ng-if="option.col != 5" layout-margin ng-cloak>
+            
+            <div ng-bind-html="comments[option.id]"></div>
+        </div>
+        <div ng-if="option.col === 5" >
+                <trix-editor style="max-height:500px;" angular-trix ng-model="comments[option.id]" class="trix-content white"></trix-editor>
+
+            <pnlp />
+            <div md-input-container layout="row">
+                <div class="">
+                    <md-button ng-click="saveComment(option)">Save</md-button>
+                </div>
+            </div>
+        </div>
+
+
+        </md-grid-tile>
+    </md-grid-list>
+</div>
+<!-- <div class="white blue-text" >
+
+<div layout="row">
+    <div style="height:400px; width: 200px;" class="">
+        Key Partners
+    </div>
+    <div >
+        <div style="height:200px; width: 200px;" class="">
+            Key Activities
+        </div>
+        <div style="height:200px; width: 200px;" class="">
+            Key Resources
+        </div>
+    </div>
+    <div style="height:400px; width: 200px;" class="">
+        Value Propositions
+    </div>
+    <div class="">
+        <div style="height:200px; width: 200px;" class="">
+            Customer Relationships
+        </div>
+        <div style="height:200px; width: 200px;" class="">
+            Channels
+        </div>
+    </div>
+    <div style="height:400px; width: 200px;" class="">
+        Customer Segments
+    </div>
+</div>
+<div layout="row">
+    <div style="height:200px; width:500px;"  class="">
+        Cost Structure
+    </div>
+    <div  style="height:200px; width:500px;" class="">
+        Revenue Structure
+    </div>
+</div>
+
+</div> -->

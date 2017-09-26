@@ -1,0 +1,65 @@
+<pn-path-nav />
+<!-- <div layout-padding></div> -->
+<!-- <div layout-padding></div> -->
+<div class="pnGrey">
+    <div layout-padding></div>
+    <div class="container" ng-if="explanation">
+        <center>    {{explanation}}</center>
+        <!-- <center>    {{taxpayer}}</center> -->
+        <div layout-padding></div>
+
+    </div>
+
+    <!-- <center>
+        <button
+        ng-disabled="!taxpayer"
+        class="btn btn-lg"
+        ng-click="save()"
+        >
+        <i class="fa fa-save fa-2x pull-left "></i>
+        Save Progress
+    </button>
+</center> -->
+
+<!-- <div layout-padding></div> -->
+
+
+<!-- <div layout-padding></div> -->
+<form name="inputform" novalidate>
+    <formly-form model="pnFormlyModel" fields="pnFormlyFields" options="pnFormlyOptions" form="inputform">
+        <center>
+
+            <div class="">
+                <!-- <div layout-padding ng-hide="taxpayer"></div> -->
+                <!-- disabled="!taxpayer" -->
+                <!-- <pn-demo-ad ng-hide="taxpayer"/> -->
+                <!-- {{taxpayer}} -->
+                <!-- {{submitDisabled}} -->
+                <div layout-padding></div>
+                <div layout-padding></div>
+                <div layout-padding></div>
+
+                <button
+                class="btn btn-lg"
+                ng-click="submit($event)"
+                >
+                <i class="fa {{submitButton.icon}} fa-2x pull-left "></i>
+                {{submitButton.label}}
+            </button>
+        </div>
+    </center>
+</formly-form>
+</form>
+
+<div flex="25"  layout-padding ng-click="showModel=!showModel">
+
+</div>
+<div layout-padding></div>
+<div ng-show="showModel" class="">
+<pre>{{pnFormlyModel |json}}</pre>
+</div>
+<div layout-padding></div>
+</div>
+
+
+<pn-footer />

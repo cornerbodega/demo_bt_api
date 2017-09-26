@@ -1,0 +1,47 @@
+<pn-path-nav />
+<div class="white">
+    <center>
+        <div class="container">
+
+            <div class="">
+                <div layout-padding></div>
+
+                <fieldset>
+                    <!-- <legend>To: </legend> -->
+                    <div class="pnText">To: {{wts.creator_name}}</div>
+                <!-- </fieldset> -->
+
+                <!-- <fieldset> -->
+                    <div></div>
+                    <div class="pnText">Subject: Please send us a manifest for {{wts.amount}} {{wts.strain}} {{wts.item_id}} (${{wts.price}}) </div>
+                <!-- </fieldset> -->
+
+                <!-- <fieldset>
+                    <legend>Requested Delivery Date</legend>
+                    <md-container>
+                        <md-checkbox ng-model="asapDeliveryDate" ng-change="asap()" >ASAP</md-checkbox>
+                    </md-container>
+                    <div class="container">
+                            <input ng-model="onDeliveryDate" type="date" />
+                            <label>On</label>
+                    </div>
+                </fieldset> -->
+
+                <!-- <fieldset> -->
+                    <md-input-container class="md-block">
+                        <textarea aria-label="message" ng-model="message" rows="5" ></textarea>
+                        <div>Message</div>
+
+                    </md-input-container>
+                    </fieldset>
+
+                <div layout-padding></div>
+
+                <button ng-disabled="!message" type="submit" flex ng-click="requestManifest()" class="btn btn-raised pnGreenDarken3">Submit</button>
+                <!-- </fieldset> -->
+                <pnlp />
+            </div>
+        </div>
+    </center>
+
+</div>

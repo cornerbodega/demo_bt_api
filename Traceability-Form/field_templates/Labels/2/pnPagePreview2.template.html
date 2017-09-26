@@ -1,0 +1,29 @@
+<center>
+    <div  class="white" id="pnLabelRoot" style="{{getStyle(model.page_template.pageSize) + getBorder()}}">
+        <div id="pnLabelParent">
+            <div class="  " style="{{getStyle(model.page_template.pageSize) + getBorder()}}" >
+                <div id="topMargin" style="{{getStyle(model.page_template.topMargin)}}" class=""></div>
+                <div class="" layout="row">
+                    <div id="leftMargin" style="{{getStyle(model.page_template.leftMargin)}}" class=""></div>
+                    <div ng-repeat="col in getArray(model.page_template.cols)" layout="column">
+                        <div id="row" ng-repeat="row in getArray(model.page_template.rows)" layout="column">
+                            <div layout="row">
+                                <div id="label"   class="" style="{{getStyle(model.page_template.labelSize) + getBorder()}}">
+                                    <div ng-hide="hideLabels" class=""  >
+                                        <pn-label-template2 class="" inventory="model.inventory" page-template="model.page_template" label-template="model.label_template"/>
+
+                                    </div>
+                                </div>
+                                <div ng-if="col < model.page_template.cols " id="hSpacer" class="" style="{{getStyle(model.page_template.hSpacing)}}" ></div>
+                            </div>
+                            <div  id="vSpacer"  ng-if="row < model.page_template.rows" class="" style="{{getStyle(model.page_template.vSpacing)}}" ></div>
+                        </div>
+                    </div>
+                    <div id="rightMargin" style="{{getStyle(model.page_template.rightMargin)}}" class=""></div>
+                </div>
+                <div id="bottomMargin" style="{{getStyle(model.page_template.bottomMargin)}}" class=""></div>
+            </div>
+        </div>
+
+    </div>
+    </center>

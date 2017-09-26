@@ -1,0 +1,17 @@
+<center><div class="container">
+    <div ng-repeat="item in model.plants">
+        <input-container>
+            <input ng-model="model.harvestFlower[item.id]" />
+            <label>Amount of Flower Harvested (g) for {{item.id}}</label>
+        <input-container>
+        <input-container>
+            <input ng-model="model.harvestOtherPlantMaterial[item.id]" />
+            <label>Amount of Other Plant Material (g) for {{item.id}}</label>
+        <input-container>
+        <input-container>
+            <input ng-model="model.harvestWaste[item.id]" />
+            <label>Amount of Waste (g) for {{item.id}}</label>
+        <input-container>
+    </div>
+</div>
+</center>

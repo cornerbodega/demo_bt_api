@@ -1,0 +1,101 @@
+<pn-path-nav />
+<div class="container">
+    <div layout-padding>
+
+    </div>
+    <div layout-padding>
+
+    </div>
+
+    <div flex  ng-repeat="wts in wts_listings">
+        <fieldset class="pnGreenDarken3 white-text z-depth-3 pnText">
+            <legend class="pnGreenDarken3 white-text" layout-padding>
+                <!-- <pn-user-profile-link ubi="wts.creator_ubi" /> -->
+                <b>{{wts.creator_name}}</b>
+            </legend>
+            <div flex  layout-gt-xs="row" >
+                <div class="">
+                    <div flex hide-xs ng-hide="wts.image == 0">
+                        <img ng-src="{{wts.image}}" style="width:auto;height:200px;">
+                    </div>
+                    <div  hide-gt-xs ng-hide="wts.image == 0">
+                        <img ng-src="{{wts.image}}" style="width:100%;height:auto;">
+                    </div>
+
+                </div>
+                <!-- <div flex></div> -->
+
+                <div layout-padding></div>
+                <div flex layout="row">
+                    <div class="">
+
+                        <div flex class="">
+                            <b>${{wts.price}}</b>
+                        </div>
+                        <div flex class="">
+                            {{wts.description}}
+                        </div>
+                        <div layout-padding>
+
+                        </div>
+                        <div flex class="">
+                            <b>{{wts.amount}} {{wts.strain}} {{wts.item_type}}</b>
+                        </div>
+
+                        <div flex class="" layout="row">
+                            <div layout="column" ng-show="wts.thc">
+                                <div>
+                                    THC
+                                </div>
+                                <div class="">
+                                    {{wts.thc}}%
+                                </div>
+                            </div>
+                            <div layout-padding></div>
+                            <div  layout="column" ng-show="wts.thca">
+                                <div>
+                                    THCA
+                                </div>
+                                <div>
+                                    {{wts.thca}}%
+                                </div>
+                            </div>
+                            <div layout-padding></div>
+
+                            <div  layout="column" ng-show="wts.cbd">
+                                <div>
+                                    CBD
+                                </div>
+                                <div>
+                                    {{wts.cbd}}%
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div layout-padding></div>
+                        <div class="">
+                            {{wts.at | timeAgo}} on
+                               {{wts.at | date:'MM/dd/yyyy'}}
+                        </div>
+                        <div class="">
+                            <!-- <pn-barcode barcode="wts.item_id" /> -->
+                        </div>
+
+                    </div>
+                    <div flex></div>
+                    <div  class="" ng-repeat="button in actionButtons">
+                        <div class="">
+                            <md-button ng-show="button.showOn(wts)" class="potnetRed" ng-click="button.onClick(wts)"><i class="fa {{button.icon}}"></i> {{button.label}}</md-button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </fieldset>
+        <div layout-padding></div>
+
+    </div>
+</div>

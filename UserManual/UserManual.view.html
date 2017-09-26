@@ -1,0 +1,77 @@
+<!-- <pn-path-nav /> -->
+<div class="pnGrey">
+    <pn-splash-header />
+
+    <div class="container">
+        <div layout-padding>
+        </div>
+        <div layout="row" layout-padding>
+            <div flex>
+
+            </div>
+            <div ng-click="expand()">
+                <u>Expand</u>
+            </div>
+            <div >
+                |
+            </div>
+            <div ng-click="collapse()">
+                <u>Collapse</u>
+            </div>
+        </div>
+        <div class="">
+            <ol>
+                <li ng-repeat="chapter in chapters">
+                    <!-- <div class="pnStrong">
+                        {{chapter.title}}
+                    </div> -->
+                    <span ng-click="chapter.show=!chapter.show" class="black-text"><i class="fa {{chapter.icon}}"></i> <u>{{chapter.title}}</u></a></span>
+
+                    <div layout-padding></div>
+
+                    <div ng-show="chapter.show">
+                        <div>
+                            <table>
+                                <tr>
+
+                                </tr>
+                                <tr ng-repeat="task in chapter.tasks">
+                                    <td>
+                                        <div layout="row">
+                                            <div>{{$parent.$index+1}}.{{$index+1}} </div>
+                                            <div layout-padding></div>
+
+                                            <span ng-click="task.show=!task.show" class="black-text"><i class="fa {{task.icon}}"></i> <u>{{task.label}}</u></a>
+
+                                            </div>
+                                            <div ng-show="task.show" layout-padding></div>
+                                            <div ng-show="task.show">
+                                                {{task.desc}}
+                                            </div>
+                                            <div  ng-show="task.show" layout-padding></div>
+                                            <ol ng-show="task.show">
+                                                <li ng-repeat="paragraph in task.steps">
+                                                    <div class="">
+                                                        {{paragraph.text}}
+                                                    </div>
+                                                    <div layout-padding></div>
+                                                    <div ng-if="paragraph.image">
+                                                        <img ng-src="{{paragraph.image}}" style="width:100%; height:auto;">
+                                                    </div>
+
+                                                </li>
+                                            </ol>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div layout-padding></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>

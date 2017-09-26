@@ -1,0 +1,66 @@
+<div class="md-padding">
+    <div flex ng-cloak>
+        <md-grid-list
+        md-cols="4"
+        md-cols-md="4"
+        md-cols-gt-md="4"
+
+        md-row-height="1:1"
+        md-gutter="8px" md-gutter-gt-sm="8px" >
+        <div ng-repeat="wts in wts_listings">
+            <md-grid-tile
+            md-rowspan="{{wts.span.row}}"
+            md-colspan="{{wts.span.col}}"
+            md-colspan-sm="{{wts.span.col}}"
+            md-colspan-xs="{{wts.span.col}}"
+            class="green darken-3 z-depth-1"
+            ng-click=""
+            back-img="{{wts.image}}"
+            >
+
+        </md-grid-tile>
+        </div>
+    <div>
+        <div  class="z-depth-1 pnTransparentish" >
+            <div flex class="pnText" layout-padding>
+                <div flex class="">
+                    <pn-user-profile-link ubi="wts.creator_ubi" />
+                </div>
+                <div 	flex class="">
+                    {{wts.strain}}
+                </div>
+                <div class="">
+                    {{wts.item_type}}
+                </div>
+                <div  class="">
+                    {{wts.amount}}
+                </div>
+                <div flex class="">
+                    ${{wts.price}}
+                </div>
+                <div  class="">
+                    THC: {{wts.thc}}%
+                </div>
+                <div 	 class="">
+                    CBD: {{wts.cbd}}%
+                </div>
+            </div>
+        </div>
+        <!-- <md-grid-tile-footer> -->
+            <div flex layout="row" class="red">
+                <div flex>
+                    <md-button>Edit</md-button>
+                </div>
+                <div flex layout-padding>
+
+                </div>
+                <div flex>
+                    <md-button class="">Remove</md-button>
+                </div>
+            </div>
+
+
+    </div>
+</md-grid-list>
+</div>
+</div>

@@ -1,0 +1,19 @@
+<center>
+    <div class="container">
+        <div layout-padding>
+            {{to.desc}}
+        </div>
+        <fieldset>
+            <legend> {{to.label}}</legend>
+            <div class="input-field col s6">
+
+                <input-container>
+                <input id="{{options.key}}" type="{{to.type}}" placeholder="{{to.placeholder}}" ng-model="model[options.key]">
+                    <!-- <label for="{{options.key}}">
+                         {{to.label}}
+                    </label> -->
+                </input-container>
+            </div>
+        </fieldset>
+    </div>
+</center>

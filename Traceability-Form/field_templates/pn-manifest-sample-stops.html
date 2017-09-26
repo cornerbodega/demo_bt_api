@@ -1,0 +1,38 @@
+<div>
+    <div layout-padding></div>
+    <!-- <div class="container"> -->
+        <div ng-repeat="lab in model.labs track by $index" class="container">
+            <fieldset>
+                <legend>To {{model.labs[$index].name}}</legend>
+                <div class="">
+                    <pn-select-samples-for-stop stop="{{$index+1}}" />
+                </div>
+                <div layout-padding></div>
+                <div class="" flex>
+                    <div class="">
+                        Date and Time of Departure
+                    </div>
+                    <div class="" flex="25">
+                        <input class="black-text" type="datetime-local" ng-model="currentStopModel.approximate_departure" class="form-control" >
+
+                    </div>
+                    <div layout-padding></div>
+                    <div class="">
+                        Date and Time of Arrival
+                    </div>
+                    <div class="" flex="25">
+                        <input class="black-text" type="datetime-local" ng-model="currentStopModel.approximate_arrival" class="form-control" >
+
+                    </div>
+                    <div class="">
+                        <input-container>
+                        <input class="black-text"  id="approximate_route" type="text" ng-model="currentStopModel.approximate_route" class="form-control" />
+                        <label for="approximate_route">Approx Route</label>
+                    </input-container>
+                </div>
+
+            </div>
+        </fieldset>
+    <!-- </div> -->
+    <div layout-padding></div>
+</div>

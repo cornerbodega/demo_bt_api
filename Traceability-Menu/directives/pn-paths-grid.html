@@ -1,0 +1,42 @@
+<div class="pnGrey">
+    <div class="layout-padding"></div>
+    <div flex ng-cloak>
+        <md-grid-list
+        md-cols-xs="1"
+        md-cols-sm="2"
+        md-cols-md="4"
+        md-cols-gt-md="5"
+        md-row-height="4:3"
+        md-gutter="8px" md-gutter-gt-sm="8px" >
+            <md-grid-tile ng-repeat="option in paths"
+            md-rowspan="{{option.span.row}}"
+            md-colspan="{{option.span.col}}"
+            md-colspan-sm="1"
+            md-cols="4"
+            class="pnGreenDarken3 z-depth-1"
+            ng-click="selectPath(option.id)"
+            >
+            <span hide-xs  class="fa-3x" ng-show="!option.notificationCount">
+                <i class="fa {{option.icon}} fa-2x" style="color:white"></i>
+            </span>
+            <span hide-gt-xs  class="fa-3x" ng-show="!option.notificationCount">
+                <i class="fa {{option.icon}} fa-2x" style="color:white"></i>
+            </span>
+            <!-- {{option}} -->
+            <span  ng-show="option.notificationCount" class="fa fa-stack fa-3x has-badge"
+                data-count="{{option.notificationCount}}">
+                <i class="fa {{option.icon}} glow fa-stack-2x" style="color:white"></i>
+            </span>
+
+                <md-grid-tile-footer class="">
+                    <div class='figcaption'>
+                        <center><span class="pnSmallTitleText">{{option.label}}</span></center>
+                    </div>
+                </md-grid-tile-footer>
+            </md-grid-tile>
+        </md-grid-list>
+    </div>
+    <div layout-padding></div>
+</div>
+
+<!-- <div class="layout-padding"></div> -->

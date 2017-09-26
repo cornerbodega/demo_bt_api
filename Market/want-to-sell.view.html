@@ -1,0 +1,81 @@
+<pn-path-nav />
+<div class="container">
+    <div class="">
+        <div class="layout-padding"></div>
+        <div flex ng-cloak>
+            <md-grid-list
+            md-cols-xs="1"
+            md-cols-sm="3"
+            md-cols-md="4"
+            md-cols-gt-md="4"
+            md-row-height="3:3"
+            md-gutter="8px" md-gutter-gt-sm="8px" >
+
+            <md-grid-tile ng-repeat="option in wts_listings"
+            md-rowspan-gt-xs="{{option.span.row}}"
+            md-colspan-gt-xs="{{option.span.col}}"
+
+            md-colspan-sm="1"
+            md-cols="4"
+            class="pnGreenDarken3 z-depth-1"
+            ng-click="selectMarketGridItem(option)"
+            >
+            <md-grid-tile-header class="z-depth-1 potnetRed white-text">
+                <center><span class="pnText pnStrong">{{option.creator_name}}</span></center>
+            </md-grid-tile-header>
+            <span class="fa-3x">
+                <i ng-show="option.image==0" class="fa fa-barcode fa-3x white-text"></i>
+            </span>
+
+            <span class="">
+                <img ng-hide="option.image==0"
+                ng-src="{{option.image}}"
+                ng-class="classForImage(option)"
+                style="width:100%;height:100%" alt="" />
+            </span>
+
+            <span layout-padding ng-show="option.span.col!=1"></span>
+            <span layout-padding ng-show="option.span.col!=1"></span>
+            <span style="overflow:auto; height:75%; width:auto"
+                layout-padding
+                class="white-text pnText pnText20"
+                ng-show="option.span.col>1">
+
+                <div flex class="">
+                    <b>${{option.price}} {{option.amount}} {{option.uom}} {{option.strain}} {{option.item_type}}</b>
+                </div>
+                <div flex class="">
+                    THC {{option.thc}} THCA {{option.thca}} CBD {{option.cbd}}</b>
+                </div>
+                <div flex class="">
+                    {{option.description}}
+                </div>
+                <div flex class="">
+                    {{option.at | timeAgo}} on
+                    {{option.at | date:'MM/dd/yyyy'}}
+                </div>
+            </span>
+
+            <md-grid-tile-footer ng-show="option.span.col==1" class="z-depth-1 potnetRed white-text">
+                <div class='figcaption'>
+                    <center><span class="pnText pnStrong">{{option.amount}} {{option.uom}} {{option.item_type}} ${{option.price}}</span></center>
+                </div>
+            </md-grid-tile-footer>
+            <md-grid-tile-footer ng-show="option.span.col!=1" class="z-depth-1 potnetRed white-text">
+                <div class='figcaption'>
+                    <div flex class="">
+                        <div  class="" ng-repeat="button in actionButtons">
+                            <center><div class="">
+                                <md-button
+                                ng-show="button.showOn(option)" class="potnetRed" ng-click="button.onClick(option)"><i class="fa {{button.icon}}"></i> {{button.label}}</md-button>
+                            </div></center>
+
+                        </div>
+                    </div>
+                </div>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
+</div>
+</div>
+</div>

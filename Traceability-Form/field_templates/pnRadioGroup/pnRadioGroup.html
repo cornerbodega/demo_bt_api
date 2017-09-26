@@ -1,0 +1,33 @@
+<!-- <md-content> -->
+
+<div class="container">
+    <fieldset>
+        <legend align="center">{{to.label}}</legend>
+        <div layout="row" layout-align="space-around">
+            <div layout="column" layout-align="start center">
+                <!-- <md-radio-group ng-model="model">
+                     <md-radio-button aria-label="{{to.label}}" ng-repeat="options in to.options"
+                                      ng-value="option" class="text-capitalize">
+                       {{option.label}}
+                     </md-radio-button>
+                </md-radio-group> -->
+                <div layout-padding>
+
+                </div>
+                <md-radio-group ng-model="model[options.key]">
+
+                    <md-radio-button ng-repeat="option in to.options"
+                        ng-value="option.id">{{option.label}}
+                    </md-radio-button>
+                    <!-- <md-radio-button value="Banana"> Banana </md-radio-button> -->
+                    <!-- <md-radio-button value="Mango">Mango</md-radio-button> -->
+
+                   </md-radio-group>
+
+            </div>
+        </div>
+
+    </fieldset>
+    <!-- </md-content> -->
+
+</div>

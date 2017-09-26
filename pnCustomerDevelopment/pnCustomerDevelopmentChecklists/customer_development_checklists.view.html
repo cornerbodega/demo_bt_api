@@ -1,0 +1,115 @@
+<div class="white blue-text" ng-click="unselect()">
+    <div class="container">
+
+        <div ng-repeat="checklist in checklists">
+<pnlp />
+            <div class="pnTitleText">
+                {{checklist.l}}
+            </div>
+            <div class="pnSmallTitleText">
+                {{checklist.goal}}
+            </div>
+            <pnlp />
+            <div ng-repeat="promptGroup in checklist.promptGroups">
+                <div class="pnStrong">
+                    <i>{{promptGroup.l}}</i>
+                </div>
+                <pnlp />
+
+                <div ng-repeat="prompt in promptGroup.prompts">
+                    <fieldset>
+                        <legend ng-click="showEdit[prompt.id] = !showEdit[prompt.id]" >
+                            <u>{{prompt.l}} <span ng-show="prompt.at" >({{prompt.at *1000 |timeAgo}})</span></u>
+                        </legend>
+                        <div  >
+
+
+                            <div >
+                                <div ng-hide="showEdit[prompt.id]"  ng-bind-html="comments[prompt.id]">
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-if="showEdit[prompt.id]">
+                            <div class="">
+
+                                <trix-editor angular-trix ng-model="comments[prompt.id]" class="trix-content white"></trix-editor>
+                            </div>
+                            <pnlp />
+                            <div md-input-container layout="row">
+                                <div class="">
+                                    <md-button ng-click="saveProgress(prompt)">Save</md-button>
+
+                                    <md-checkbox  ng-model="complete[prompt.id]">Complete</md-checkbox>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                    <pnlp />
+                </div>
+            </div>
+            <pnlp />
+              <div style="border-top: 1px dotted #8c8b8b;">
+                  <pnlp />
+
+        </div>
+    </div>
+</div>
+
+<!--
+
+<div class="pnGrey" ng-click="unselect()">
+    <div class="container">
+        <table ng-repeat="chapter in chapters">
+            <tr>
+
+            </tr>
+            <tr class="pnStrong">
+
+                <td colspan="2">{{chapter.title}}</td>
+            </tr>
+
+            <tr ng-repeat="checkbox in chapter.checkboxes">
+                <td><div layout-padding>
+
+                </div></td>
+                <td >
+                    <fieldset>
+                        <legend ng-click="showEdit[checkbox.id] = !showEdit[checkbox.id]" align="center">
+                            {{checkbox.l}} ({{checkbox.at *1000 |timeAgo}})
+                        </legend>
+                    <div  >
+
+
+                        <div >
+                            <div ng-hide="showEdit[checkbox.id]"  ng-bind-html="comments[checkbox.id]">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="showEdit[checkbox.id]">
+                        <div class="">
+
+                            <trix-editor angular-trix ng-model="comments[checkbox.id]" class="trix-content white"></trix-editor>
+                        </div>
+                        <pnlp />
+                        <div md-input-container layout="row">
+                            <div class="">
+                                <md-button ng-click="saveProgress(checkbox)">Save</md-button>
+
+                                <md-checkbox  ng-model="complete[checkbox.id]">Complete</md-checkbox>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </fieldset>
+
+                </td>
+
+            </tr>
+        </table>
+
+
+</div> -->

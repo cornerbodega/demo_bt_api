@@ -1,0 +1,13 @@
+<md-dialog aria-label="List dialog">
+    <md-dialog-content layout-padding>
+        <h4>Approved!</h4>
+        <h5>Washington State Liquor and Cannabis Board Traceability Server replies:</h5>
+        <pre>{{res.data | json}}</pre>
+    </md-dialog-content>
+    <md-dialog-actions>
+
+    <md-button ng-click="ok()" class="md-primary"> OK </md-button>
+
+    </md-dialog-actions>
+
+</md-dialog>

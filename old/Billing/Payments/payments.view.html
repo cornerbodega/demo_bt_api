@@ -1,0 +1,68 @@
+<pn-path-nav />
+<div class="white">
+    <div class="container" >
+        <div layout-padding ></div>
+        <!-- <div class=""> -->
+        <fieldset>
+            <legend align="center">Summary</legend>
+            <center>
+                <div class="pnText  ">{{myPlan.label}} Potnet Membership</div>
+                <!-- <div class="pnText  ">Signup Fee: Waived</div> -->
+                <div class="pnText  ">Taxes Included</div>
+                <div class="pnText pnSmallTitleText">Total: ${{myPlan.price}}</div>
+            </center>
+            <!-- <div class="pnText pnSmallTitleText">Total: ${{myPlan.price}} {{myPlan.label}}</div> -->
+        </fieldset>
+        <div layout-padding></div>
+        <center>
+        <fieldset>
+            <legend align="center">Select Payment Method</legend>
+            <div pn-amazon-wallet></div>
+        </fieldset>
+
+        <fieldset>
+            <legend align="center">Authorize Payment</legend>
+            <div pn-recurring-payments-widget ></div>
+        </fieldset>
+
+        <div layout-padding ></div>
+
+        <div>
+            <div>
+                    <a
+                        disabled="true"
+
+                        ng-class="classForSubmitButton()"
+
+                        ng-click="checkout($event)"
+                    >
+                        <i class="fa {{submitButton.icon}} fa-2x pull-left"></i>
+                        {{submitButton.label}}
+                    </a>
+
+                <!-- <center><button ng-show="pnData" flex type="submit" class="btn btn-raised potnetRed">Submit</button></center> -->
+            </div>
+                <!-- <a
+                    disabled="true"
+
+                    class="btn btn-lg btn-success"
+
+                    ng-click="checkout($event)"
+                >
+                    <i class="fa {{submitButton.icon}} fa-2x pull-left"></i>
+                    {{submitButton.label}}
+                </a> -->
+
+            <!-- <center><button ng-show="pnData" flex type="submit" class="btn btn-raised potnetRed">Submit</button></center> -->
+        </div>
+    </center>
+
+    </div>
+    <div layout-padding></div>
+    <div layout-padding></div>
+    <div layout-padding></div>
+    <div layout-padding></div>
+    <div layout-padding></div>
+<div layout-padding></div>
+
+</div>

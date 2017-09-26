@@ -1,0 +1,46 @@
+<!-- {{to.options}} -->
+<center>
+    <div class="container">
+        <fieldset>
+            <legend>{{to.label}}</legend>
+            <md-chips ng-model="model.vendors" md-autocomplete-snap
+                      md-require-match="true">
+              <md-autocomplete
+                  md-selected-item="selectedItem"
+                  md-min-length="4"
+                  md-search-text="$query"
+                  md-selected-item-change="selectedItemChange(item)"
+                  md-items="item in querySearch($query)"
+                  md-item-text="item.name"
+                  placeholder="502 Business">
+                <span md-highlight-text="$query">{{item.name}}</span>
+              </md-autocomplete>
+
+              <md-chip-template>
+                <span>
+                  <strong>{{$chip.name}}</strong>
+
+                </span>
+              </md-chip-template>
+            </md-chips>
+            <!-- <md-autocomplete
+
+
+
+            md-search-text-change="searchTextChange(searchText)"
+            md-search-text="searchText"
+            md-selected-item-change="selectedItemChange(item)"
+            md-items="item in querySearch(searchText)"
+            md-item-text="item.name"
+            md-min-length="0"
+            >
+            <md-item-template>
+                <span md-highlight-text="searchText"  md-highlight-flags="^i">{{item.name}}</span>
+            </md-item-template>
+            <md-not-found>
+                No I-502 businesses matching "{{searchText}}" were found.
+            </md-not-found>
+        </md-autocomplete> -->
+    </fieldset>
+</div>
+</center>

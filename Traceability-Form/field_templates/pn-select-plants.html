@@ -1,0 +1,70 @@
+<!-- {{to.options}} -->
+<!-- <center>
+<div class="">
+<a ng-click="showInventory = !showInventory"><span  ng-show="!showInventory">Select</span><span  ng-show="showInventory">Hide </span> Inventory</a>
+</div>
+</center> -->
+
+<!-- <div  ng-show="showInventory"> -->
+<center>
+    <div class="container">
+        <fieldset>
+            <legend> {{to.label}} (<span ng-show="model.plants">{{model.plants.length}}/</span>{{to.options.length}})</legend>
+        <div class="input-field col s6">
+            <input-container>
+            <input id="{{options.key}}" type="text" ng-model="search">
+
+            <!-- <input type="text" id="search" ng-model="search" /> -->
+            <!-- <label for="search"><i class="fa fa-search"></i> Search</label> -->
+            <label for="{{options.key}}"><i class="fa fa-search"></i> Search</label>
+        </input-container>
+        <div ng-show="model.plants" >
+            Selected Plants: <span ng-repeat="plant in model.plants">{{plant.id}}<span ng-show="!$last">, </span>
+        </div>
+
+        <div class="repeater-container">
+            <div ng-show="!pnData">Loading...</div>
+            <div vs-repeat layout-padding>
+                <div ng-repeat="item in to.options|filter: search"
+                ng-click="pnMultipleSelectPlants(item)" ng-class="item.$selected ? 'md-3-line pnGreenDarken3 white-text' : ''" >
+                    <center>
+                        <div layout-gt-sm="row" flex>
+                                <div flex>{{item.strain}} ({{item.plantStatus}})</div>
+                                <div layout-padding></div>
+                                <div flex>{{item.roomLabel}}</div>
+                                <div layout-padding></div>
+                                <div flex>{{item.plantBirthday}}</div>
+                                <div layout-padding></div>
+                                <div flex>{{item.id}}</div>
+                                <div layout-padding></div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+        </fieldset>
+        
+    </div>
+</center>
+
+<!-- {{model.plants}} -->
+<!-- <div ng-show="model.plants" layout-padding class="pnGreenDarken3 white-text"> -->
+<!-- <div ng-show="model.plants" layout-padding class="pnGreenDarken3 white-text">
+    <div class="">
+        Selected {{to.label}} ({{model.plants.length}} / {{to.options.length}})
+    </div>
+    <div ng-repeat="item in model.plants">
+        <center>
+            <div class="">
+                <ul>
+                    <li>{{item.strain}} ({{item.plantStatus}})</li>
+                    <li>{{item.roomLabel}}</li>
+                    <li>Planted {{item.plantBirthday}}</li>
+                    <li>ID: {{item.id}}</li>
+                </ul>
+            </div>
+        </center>
+        <div layout-padding></div>
+    </div>
+
+</div> -->

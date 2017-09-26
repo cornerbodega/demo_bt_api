@@ -1,0 +1,415 @@
+<div class="container">
+    <div style="text-align:left">
+        <!-- tests -->
+
+    </div>
+
+    <br />
+    <div class="nestedDemo row" >
+        <!-- Markup for lists inside the dropzone. It's inside a seperate template
+        because it will be used recursively. The dnd-list directive enables
+        to drop elements into the referenced array. The dnd-draggable directive
+        makes an element draggable and will transfer the object that was
+        assigned to it. If an element was dragged away, you have to remove
+        it from the original list yourself using the dnd-moved attribute -->
+
+
+
+
+
+        <!-- This template is responsible for rendering a container element. It uses
+        the above list template to render each container column -->
+        <script type="text/ng-template" id="container.html">
+            <div class="container-element box box-blue">
+                <h3></h3>
+                <div class="column" ng-repeat="list in item.columns" ng-include="'list.html'"></div>
+                <div class="clearfix"></div>
+            </div>
+        </script>
+
+
+
+
+
+        <!-- Template for a normal list item -->
+        <script type="text/ng-template" id="pnCustomText.html">
+            <div class="item">{{item.label}}</div>
+        </script>
+        <!-- Template for a normal list item -->
+        <script type="text/ng-template" id="image.html">
+            <div class="item">Custom Image</div>
+        </script>
+
+        <!-- Template for a normal list item -->
+        <script type="text/ng-template" id="barcodeImage.html">
+            <div class="item">{{item.label}}</div>
+        </script>
+
+        <!-- Template for a normal list item -->
+        <script type="text/ng-template" id="item.html">
+            <div class="item">{{item.label}}</div>
+        </script>
+
+        <script type="text/ng-template" id="me.html">
+        <div class="item">My Name</div>
+        </script>
+
+        <fieldset>
+            <legend align="center">Label Preview</legend>
+            <!-- <center> -->
+            <!-- {{model.page_template}} -->
+            <div id="label"  class="" flex layout="row">
+                <div class="" flex>
+
+                </div>
+                <div class="white"  style="{{model.page_template.labelSize + 'border: dashed 1px black;'}}">
+                    <!-- <pnPixiLabelsCanvas /> -->
+                    <!-- <pn-label-template label-template="model.label_template" item="model.inventory[0]"/> -->
+                    <pn-label-template2 />
+
+                </div>
+                <div class="" flex>
+
+                </div>
+                <!-- <pn-label-template /> -->
+
+
+            </div>
+
+        </fieldset>
+
+        <div layout-padding></div>
+
+
+
+
+
+
+        <script type="text/ng-template" id="list.html">
+            <ul dnd-list="list">
+                <li ng-repeat="item in list"
+                dnd-draggable="item"
+                dnd-effect-allowed="move"
+                dnd-moved="list.splice($index, 1)"
+                dnd-selected="models.selected = item"
+                ng-class="{selected: models.selected === item}"
+                ng-include="item.type + '.html'">
+
+            </li>
+        </ul>
+    </script>
+
+    <div ng-if="models.selected" >
+        <fieldset>
+            <legend align="center">Object Properties</legend>
+            <div ng-show="models.selected.type==='item'">
+                <div layout="row" flex>
+                    <div flex></div>
+
+                    <div class="">
+                        <md-input-container>
+                            <label>Font Family</label>
+                            <md-select ng-model="models.selected.font" ng-change="updateFont()">
+                                <md-option style="{{'font-family:'+font.id+';'}}" ng-repeat="font in fonts"  ng-value="font.id" >
+                                    {{font.label}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div flex></div>
+
+                    <div class="">
+                        <md-input-container>
+                            <label>Text Size</label>
+                            <md-select ng-model="models.selected.textSize" ng-change="updateTextSize()">
+                                <md-option ng-repeat="size in textSizes"  ng-value="size" >
+                                    {{size}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div flex></div>
+                    <div class="">
+                        <pn-bold-underline-italics-buttons />
+                    </div>
+                    <div flex></div>
+
+                    <div class="">
+                        <!-- Alignment -->
+                        <pn-text-align-buttons />
+
+                    </div>
+
+                    <div class="">
+                        <md-input-container>
+                            <md-button ng-click="models.selected.hide=!models.selected.hide">Toggle Title</md-button>
+                        </md-input-container>
+
+                    </div>
+                    <div class="">
+                        <md-input-container>
+                            <md-button ng-click="showEditTitle=!showEditTitle">Edit Title</md-button>
+                        </md-input-container>
+                        <div ng-show="showEditTitle">
+                            <input ng-model="models.selected.label" />
+
+                        </div>
+
+                    </div>
+                    <div class="">
+                        <md-input-container>
+                            <md-button ng-click="showEditUnits=!showEditUnits">Edit Units</md-button>
+                        </md-input-container>
+                        <div ng-show="showEditUnits">
+                            <md-input-container>
+                                <label>Quantity Units</label>
+                                <input ng-model="models.selected.units" />
+
+                                <!-- <md-select ng-model="models.selected.units" >
+                                    <md-option ng-repeat="unit in units"  ng-value="unit" >
+                                        {{unit}}
+                                    </md-option>
+                                </md-select> -->
+                            </md-input-container>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div ng-show="showLabelFieldActions('pnCustomText')">
+
+                <div layout="row" flex>
+                    <div class="">
+                        <md-input-container>
+                            <input ng-model="models.selected.customText" placeholder=""/>
+                            <label>Enter Custom Text Here</label>
+                            
+                        </md-input-container>
+
+                    </div>
+                    <div flex></div>
+                    <div class="">
+                        <pn-bold-underline-italics-buttons />
+                    </div>
+                    <div flex></div>
+
+                    <div class="">
+                        <md-input-container>
+                            <label>Font Family</label>
+                            <md-select ng-model="models.selected.font" ng-change="updateFont()">
+                                <md-option style="{{'font-family:'+font.id+';'}}" ng-repeat="font in fonts"  ng-value="font.id" >
+                                    {{font.label}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div flex></div>
+
+                    <div class="">
+                        <md-input-container>
+                            <label>Text Size</label>
+                            <md-select ng-model="models.selected.textSize" ng-change="updateTextSize()">
+                                <md-option ng-repeat="size in textSizes"  ng-value="size" >
+                                    {{size}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div flex></div>
+
+                    <div class="">
+                        <!-- Alignment -->
+                        <pn-text-align-buttons />
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+            <div ng-show="showLabelFieldActions('image')">
+
+                <div class="">
+
+                    <div class="">
+                        <pn-upload-image-iso item="models.selected" />
+
+                    </div>
+                    <div layout-padding>
+
+                    </div>
+                    <div flex>
+                        <div flex="25">
+                            <label>Image Size</label>
+                            <input type="number" min="0" ng-change="updateImageSize()"  ng-model="models.selected.imageWidth" >
+                        </div>
+                    </div>
+                    <div flex></div>
+                    <div class="">
+                        <pn-text-align-buttons />
+
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="showLabelFieldActions('barcodeImage')">
+                <div flex layout="row" >
+                    <!-- {{updateBarcodeHeight()}} -->
+                    <div flex="25">
+                        <label>Barcode Height</label>
+                        <input type="number" min="0" ng-change="updateBarcodeHeight()"  ng-model="models.selected.barcodeHeight" >
+                    </div>
+                    <div flex></div>
+                    <div class="">
+                        <pn-text-align-buttons />
+
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="">
+            {{models.selected}}
+
+        </div> -->
+    </fieldset>
+    <div layout-padding></div>
+
+</div>
+<div layout="row" flex>
+    <!-- <div layout-padding></div> -->
+    <div class="" flex="50  ">
+        <fieldset >
+            <legend align="center">Drag & Drop Label Layout</legend>
+            <div layout-padding></div>
+
+            <!-- <div class="row"> -->
+            <div ng-repeat="(zone, list) in models.dropzones" class="col-md-6">
+                <div class="dropzone box box-yellow">
+                    <!-- The dropzone also uses the list template -->
+                    <!-- <h3>Dropzone {{zone}}</h3> -->
+                    <div ng-include="'list.html'"></div>
+                </div>
+            </div>
+            <!-- <div view-source="nested"></div> -->
+        </fieldset>
+
+    </div>
+
+
+    <div layout-padding></div>
+    <div layout="column" flex>
+
+        <div layout="row">
+            <!-- <div class="">
+                <fieldset>
+                    <legend align="center">Drop Here to Remove a Field</legend>
+                    <ul dnd-list="[]">
+                        <li><center><i class="fa fa-trash fa-2x"></i></center></li>
+                    </ul>
+                </fieldset>
+            </div>
+            <div layout-padding>
+
+            </div> -->
+            <div class="" flex>
+                <fieldset align="center">
+                    <legend>Default Layouts</legend>
+                    <!-- <md-input-container> -->
+                        <!-- <label>Font Family</label> -->
+                        <md-select ng-model="selectedDefaultLayout" ng-aria="select default layout" ng-change="defaultLayoutSelected()">
+                            <md-option ng-repeat="layout in defaultLayouts"  ng-value="layout.id" >
+                                {{layout.label}}
+                            </md-option>
+                        </md-select>
+                    <!-- </md-input-container> -->
+                </fieldset>
+            </div>
+        </div>
+        <!-- <div class="">
+        <fieldset>
+        <legend align='center'>Container</legend>
+        <ul>
+
+        <li style="display: inline;" ng-if="item.type==='container'" ng-repeat="item in models.templates"
+        dnd-draggable="item"
+        dnd-effect-allowed="copy"
+        dnd-copied="item.id = item.id + 1"
+        >
+        <md-button >{{item.label}}</md-button>
+    </li>
+</ul>
+
+
+</fieldset>
+</div> -->
+<!-- {{models.templates}} -->
+<div layout-padding></div>
+
+<div class="">
+    <fieldset dnd-list="[]">
+        <legend align='center'>Field Bank</legend>
+        <input placeholder="Search Field Bank" type="text" id="search" ng-model="search">
+        <ul>
+            <!-- The toolbox only allows to copy objects, not move it. After a new
+            element was created, dnd-copied is invoked and we generate the next id -->
+            <li  style="display: inline;" ng-repeat="item in models.templates |filter:search"
+            dnd-draggable="item"
+            dnd-effect-allowed="copy"
+            dnd-copied="item.id = item.id + 1"
+            >
+            <md-button >{{item.label}}</md-button>
+        </li>
+    </ul>
+
+
+</fieldset>
+</div>
+
+
+</div>
+
+
+</div>
+<div layout-padding></div>
+
+
+<!-- <div class="toolbox box box-grey box-padding">
+
+<h3></h3>
+
+</div> -->
+
+<!-- Main area with dropzones and source code -->
+
+
+<!-- Sidebar -->
+<!-- <div class="col-md-2">
+
+
+
+<div ng-if="models.selected" class="box box-grey box-padding">
+<h3>Selected</h3>
+<strong>Type: </strong> {{models.selected.type}}<br>
+<input type="text" ng-model="models.selected.id" class="form-control" style="margin-top: 5px" />
+</div>
+
+<div class="trashcan box box-grey box-padding">
+<h3>Trashcan</h3>
+<ul dnd-list="[]">
+<li><img src="nested/trashcan.jpg"></li>
+</ul>
+</div>
+
+</div> -->
+
+<!-- <h2>Generated Model</h2>
+<pre>{{modelAsJson}}</pre> -->
+</div>
+
+</div>

@@ -1,0 +1,309 @@
+<!doctype html>
+
+<html ng-app="countryApp" ng-controller="IndexController" >
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="apple-mobile-web-app-title" content="ABC">
+    <meta name="application-name" content="ABC">
+    <meta name="theme-color" content="#ffffff">
+    <!--
+    <link rel="icon"
+    type="image/png"
+    href="https://abctraceability.com/favicon.png"> -->
+
+    <title>ABC Traceability</title>
+
+    <!-- <link rel="manifest" href="img/mobile-launch-icons.json"> -->
+
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="description" content="Potnet" />
+
+    <link rel="stylesheet" href="style/nested.css">
+    <!-- <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="bower_components/prism/themes/prism.css">
+
+
+
+    <style type="text/css" media="print">@page { size: auto;   /* auto is the initial value */ margin: 0mm;  /* this affects the margin in the printer settings */}</style>
+    <!-- Loading Bar -->
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+
+    <!-- Butchered Materialize CSS library. Integral. Can never be bower upgraded!! -->
+    <link rel="stylesheet" href="bower_components/Materialize/sass/marv-materialize.css">
+    <link rel="stylesheet" href="style/2styles.css">
+    <link rel="stylesheet" href="style/styles.css">
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+
+    <!-- <script src="bower_components/Materialize/dist/js/materialize.js"></script> -->
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/angular-underscore-module/angular-underscore-module.js"></script>
+    <script src="bower_components/angular-uploadcare/angular-uploadcare.js"></script>
+    <script src="bower_components/Uploadcare/uploadcare.min.js"></script>
+    <script>UPLOADCARE_PUBLIC_KEY = '55a55d432aed473a7467';</script>
+    <script src="bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
+    <script src="bower_components/angular-vs-repeat/src/angular-vs-repeat.min.js"></script>
+    <script src="bower_components/ng-currency/dist/ng-currency.min.js"></script>
+    <script src="bower_components/api-check/dist/api-check.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-formly/dist/formly.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-timeago/dist/angular-timeago.min.js"></script>
+    <script src="bower_components/angular-io-barcode/build/angular-io-barcode.min.js"></script>
+    <script src="bower_components/angular-barcode/dist/angular-barcode.min.js"></script>
+    <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+    <script src="bower_components/angular-telephone-filter/dist/angular-telephone-filter.min.js"></script>
+    <script src="bower_components/angular-drag-and-drop-lists/angular-drag-and-drop-lists.min.js"></script>
+    <script src="bower_components/html2canvas/html2canvas.min.js"></script>
+    <script src="bower_components/pdfmake/build/pdfmake.min.js"></script>
+    <script src="bower_components/d3/d3.min.js"></script>
+    <script src="bower_components/chart.js/dist/Chart.bundle.js"></script>
+    <script src="bower_components/bbcode/angular-bbcode.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <link rel="stylesheet" href="bower_components/trix/dist/trix.css">
+    <script src="bower_components/trix/dist/trix-core.js"></script>
+    <script src="bower_components/angular-trix/dist/angular-trix.min.js"></script>
+    <script src="bower_components/thenby/thenBy.min.js"></script>
+    <!-- <script type="text/javascript" src="bower_components/marv/marv-scroll.js"></script> -->
+    <!-- style sheet -->
+    <link href="bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css"/>
+    <!-- module -->
+    <script type="text/javascript" src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+    <!-- <script src="bower_components/angular-scroll-glue/src/scrollglue.js"></script> -->
+    <!-- <script src="bower_components/moment-timezone/moment-timezone.js"></script> -->
+    <!-- <script src=""></script> -->
+    <!-- <script src=""></script> -->
+    <!-- <script src=""></script> -->
+    <!-- <script src=""></script> -->
+    <!-- <script src="bower_components/pixi/pixi.min.js"></script> -->
+
+
+
+
+    <script src="app.js"></script>
+    <script src="index/index-controller.js"></script>
+    <script src="Nav/pnPathNav.js"></script>
+    <script src="Market/Market-Controller.js"></script>
+    <script src="Traceability-Form/pnMarketSubmitService.service.js"></script>
+    <script src="Market/Profile/Profile.js"></script>
+    <script src="Market/ViewListings.js"></script>
+    <script src="Market/Request-Manifest/Request-Manifest.controller.js"></script>
+    <script src="Data-Model/pnDB.js"></script>
+    <script src="Traceability-Menu/Traceability-Menu.controller.js"></script>
+    <script src="Traceability-Menu/Traceability-Menu.service.js"></script>
+    <script src="Traceability-Form/Traceability-Form.controller.js"></script>
+    <script src="Traceability-Form/Traceability-Form.service.js"></script>
+    <script src="Traceability-Form/pnFormValidator.js"></script>
+    <script src="Traceability-Form/Form-Confirm-And-Submit.service.js"></script>
+    <script src="Traceability-Form/Form-Request-Formatter.service.js"></script>
+    <script src="Traceability/pnFormly/pn-formly-config.js"></script>
+    <script src="Data-Model/pnStaticData.data.service.js"></script>
+    <script src="Traceability-Browse/Traceability-Browse.controller.js"></script>
+    <script src="Traceability/pnFormly/Form-Data-Service.js"></script>
+    <script src="Traceability/pnFormly/Field-Data-Service.js"></script>
+    <script src="Traceability/pnFormly/Field-Data-Service.js"></script>
+    <script src="Traceability-Form/field_templates/pn-select-inventory-for-stop.js"></script>
+    <script src="Traceability-Form/field_templates/pn-select-samples-for-stop.js"></script>
+    <script src="Dashboard/pnCols.service.js"></script>
+    <script src="Traceability-Form/field_templates/pnUploadImage.js"></script>
+    <script src="abcSplash/abcSplash.controller.js"></script>
+    <script src="Splash/Log-In/Log-In.js"></script>
+    <script src="Logout/Logout.controller.js"></script>
+    <script src="pnProxy/pnProxy.service.js"></script>
+    <script src="Toast/pnDialog.service.js"></script>
+    <script src="Traceability-Menu/Traceability-Menu-Notifications.service.js"></script>
+    <script src="Market/Respond-To-Manifest-Requests/Respond-To-Manifest-Requests.controller.js"></script>
+    <script src="Market/Generate-Manifest-For-Request/Generate-Manifest-For-Request.service.js"></script>
+    <!-- <script src="Billing/Billing.js"></script> -->
+    <!-- <script src="Billing/MyBillingAgreement/MyBillingAgreement.js"></script> -->
+    <!-- <script src="Billing/MyMembership/MyMembership.js"></script> -->
+    <!-- <script src="Billing/NewClient/NewClient.js"></script> -->
+    <!-- <script src="Billing/OfficeOfTheTaxCollecter.js"></script> -->
+    <!-- <script src="Billing/Payments/Payments.js"></script> -->
+    <!-- <script src="Billing/Cancel/Cancel.js"></script> -->
+    <script src="Sync/Sync.js"></script>
+    <script src="Data-Model/Individual-Services/Inventory.data.service.js"></script>
+    <script src="Connect-Service/pnPost.connect.service.js"></script>
+    <script src="Connect-Service/pnLcbAccessor.service.js"></script>
+    <script src="Data-Model/Individual-Services/Inventory.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/Plants.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/Employees.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/Vehicles.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/Vendors.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/Labs.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/Manifests.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/QaSamples.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/ThirdPartyTransporters.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/OutboundTransfers.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/OutboundTransferReturns.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/InboundTransfers.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/ManifestRequests.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/WtsListings.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/Timesheet.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/MyTimesheet.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/InventoryRooms.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/PlantRooms.data.service.js"></script>
+    <script src="Data-Model/pnMyData.data.service.js"></script>
+    <script src="Data-Model/pnDatagories/pnDatagories.service.js"></script>
+
+    <script src="Lcb-Function-Explainer/pnLcbFunctionExplainer.service.js"></script>
+    <script src="pnBarcode/pnBarcode.js"></script>
+    <!-- <script src="History/History.js"></script> -->
+    <script src="Undo/Undo.js"></script>
+    <script src="Traceability-Form/field_templates/pnDetailsTable/pnDetailsTable.directive.js"></script>
+    <script src="Traceability-Form/field_templates/pnCuratedDetailsTable/pnCuratedDetailsTable.directive.js"></script>
+
+    <script src="Features/features.js"></script>
+    <script src="Beta/Beta.controller.js"></script>
+    <script src="Traceability-Form/field_templates/pnDays.filter.js"></script>
+    <script src="pnMail/pnMail.service.js"></script>
+    <script src="pnLogger/pnLogger.service.js"></script>
+    <script src="Splash/pnBetaSignUp/pnBetaSignUp.controller.js"></script>
+    <script src="Data-Model/Individual-Services/pnInventoryTypes.data.service.js"></script>
+    <script src="abcSplash/abcSplashNavMenu/abcSplashNavMenu.directive.js"></script>
+    <script src="pnDemoAd/pnDemoAd.directive.js"></script>
+    <script src="pnPrint/pnPrint.directive.js"></script>
+    <script src="UserManual/UserManual.controller.js"></script>
+    <!-- <script src="FavoriteVendors/FavoriteVendors.controller.js"></script> -->
+    <script src="Data-Model/Individual-Services/FavoriteVendors.data.service.js"></script>
+    <!-- <script src="Data-Model/Individual-Services/static/InventoryLabelTypes.static.data.service.js"></script> -->
+
+    <script src="Data-Model/Individual-Services/static/LabelCategories.static.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/static/LabelTemplates.static.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/static/PageTemplates.static.data.service.js"></script>
+    <!-- <script src="Data-Model/Individual-Services/static/LabelPaperSize.static.data.service.js"></script> -->
+    <!-- <script src="Data-Model/Individual-Services/static/LabelPaperMargins.static.data.service.js"></script> -->
+    <!-- <script src="Data-Model/Individual-Services/static/LabelPaperColumns.static.data.service.js"></script> -->
+    <script src="Data-Model/Individual-Services/MyLabels.data.service.js"></script>
+    <!-- <script src="pnLabelTemplate/pnLabelTemplate.directive.js"></script> -->
+    <script src="pnLabelTemplate2/pnLabelTemplate2.directive.js"></script>
+    <script src="Traceability-Form/field_templates/Labels/pnPrintThisElement/pnPrintThisElement.directive.js"></script>
+    <script src="pnPrint/pnPrintLabelsPage.controller.js"></script>
+    <!-- <script src="Traceability-Form/field_templates/Labels/pnPagePreview.directive.js"></script> -->
+    <script src="Traceability-Form/field_templates/Labels/2/pnPagePreview2.directive.js"></script>
+    <script src="UserManual/UserManual.service.js"></script>
+    <script src="pnModel/pnModel.service.js"></script>
+    <script src="pnLocalStorage/pnLocalStorage.service.js"></script>
+    <script src="pnPrint/pnHtml2Pdf.directive.js"></script>
+
+
+
+    <script src="Traceability-Form/field_templates/Labels/pnTextAlignButtons.directive.js"></script>
+    <script src="pnLoadingGears/pnLoadingGears.directive.js"></script>
+    <script src="Data-Model/Individual-Services/static/pnChartTypes.static.data.service.js"></script>
+    <script src="pnBarChart/pnBarChart.directive.js"></script>
+
+    <script src="Data-Model/Individual-Services/pnChartData/pnChartData.static.data.service.js"></script>
+    <script src="pnColorBank/pnColorBank.service.js"></script>
+    <script src="Data-Model/pnDataBank.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/static/pnReportCategories.static.data.service.js"></script>
+    <script src="Data-Model/Individual-Services/static/pnActionButtons.static.data.service.js"></script>
+
+
+
+    <script src="pnForum/splash/pnForumSplash.controller.js"></script>
+    <script src="pnlp/pnlp.directive.js"></script>
+    <script src="pnSplashHeader/pnSplashHeader.directive.js"></script>
+    <script src="pnForum/topics/pnForumTopics.controller.js"></script>
+    <script src="pnForum/categories/pnForumCategories.data.service.js"></script>
+    <script src="pnForum/topic/pnTopic.controller.js"></script>
+    <script src="Splash/Log-In/pnLoginRouter.data.service.js"></script>
+    <script src="pnForum/directives/pnForumPostButtons.directives.js"></script>
+
+    <script src="pnForum/draft/pnForumDraft.controller.js"></script>
+
+    <script src="pnForum/subscription/pnForumSubscriptionManager.service.js"></script>
+    <script src="pnForum/subscription/pnForumSubscriptions.controller.js"></script>
+    <script src="pnCustomerDevelopment/book_notes/pnCustomerDevelopmentBookNotes.controller.js"></script>
+    <script src="pnCustomerDevelopment/pnCustomerDevelopmentChecklists/pnCustomerDevelopmentChecklists.controller.js"></script>
+    <script src="pnCustomerDevelopment/pnBusinessModelCanvas/pnBusinessModelCanvas.controller.js"></script>
+    <script src="pnCustomerDevelopment/menu/pnCustomerDevelopmentMenuController.controller.js"></script>
+
+    <script src="pnMasterSubscriptionAgreement/pnMasterSubscriptionAgreement.controller.js"></script>
+    <script src="pnCheckout/checkout/pnCheckout.controller.js"></script>
+    <script src="pnCheckout/select_plan/pnSelectPlan.controller.js"></script>
+    <script src="pnCheckout/select_plan/pnSubscriptionPlans.service.js"></script>
+    <script src="pnCustomerDevelopment/pnSalesAndPhoneByLicense/pnSalesAndPhoneByLicense.controller.js"></script>
+
+    <script src="pnCalendar/appointment/appointment.controller.js"></script>
+    <script src="pnCalendar/opportunities/pnOpportunities.controller.js"></script>
+    <script src="Traceability-Form/field_templates/pnItemNotes.service.js"></script>
+    <script src="Data-Model/Individual-Services/pnUsage.data.service.js"></script>
+    <script src="Traceability-Form/field_templates/pnBrowseClick.js"></script>
+    <script src="pnDemo/pnDemo.controller.js"></script>
+
+    <!-- <script src=""></script> -->
+    <!-- <script src=""></script> -->
+    <!-- <script src=""></script> -->
+    <!-- <script src=""></script> -->
+
+    <!-- <script src=""></script> -->
+    <!-- <script src=""></script> -->
+    <!-- <script src=""></script> -->
+    <!-- <script src=""></script> -->
+
+
+
+
+
+
+    <!-- <script src=""></script> -->
+
+
+
+
+
+
+    <script src="pnFooter/pnFooter.js"></script>
+
+
+
+
+</head>
+<body id="wrapper1"  ng-strict-di ng-view autoscroll class="pnHeight140 pnText pnGreenDarken3 black-text">
+    <!-- <div >
+
+</div> -->
+<pn-footer />
+
+<!-- <div id="amazon-root"></div>
+<script type="text/javascript">
+
+window.onAmazonLoginReady = function() {
+amazon.Login.setClientId('amzn1.application-oa2-client.7036efc75e4a44188c6383a265f079f1');
+};
+(function(d) {
+var a = d.createElement('script'); a.type = 'text/javascript';
+a.async = true; a.id = 'amazon-login-sdk';
+a.src = 'https://api-cdn.amazon.com/sdk/login1.js';
+d.getElementById('amazon-root').appendChild(a);
+})(document);
+
+
+</script>
+
+
+<script type='text/javascript' src='https://static-na.payments-amazon.com/OffAmazonPayments/us/js/Widgets.js'></script> -->
+
+</body>
+</html>

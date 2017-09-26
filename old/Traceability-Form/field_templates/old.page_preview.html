@@ -1,0 +1,69 @@
+<!-- <div class="">
+<pre>
+    {{model.page_template | json}}
+</pre>
+</div>
+<div class="">
+<pre>
+    {{model.page_template.sizeStyles('rows')}}
+
+</pre>
+</div> -->
+<div class="" layout-padding>
+<!-- {{model.page_template.labelName}} -->
+</div>
+<!-- {{model.page_template.labelSize}} -->
+
+<div class=" container " style="{{getStyle(model.page_template.pageSize) + 'border: dashed 1px black;'}}" >
+    <div id="topMargin" style="{{getStyle(model.page_template.topMargin)}}" class=""></div>
+    <div class="" layout="row">
+        <div id="leftMargin" style="{{getStyle(model.page_template.leftMargin)}}" class=""></div>
+
+        <!-- Labels -->
+
+        <!-- 3 columns across -->
+        <!-- <div ng-repeat=""> -->
+            <!-- 10 rows down -->
+            <div ng-repeat="col in getArray(model.page_template.cols)" layout="column">
+                <div id="row" ng-repeat="row in getArray(model.page_template.rows)" layout="row">
+                    <div id="label"  class="" style="{{getStyle(model.page_template.labelSize) + 'border: dashed 1px black;'}}">
+                        <div ng-if="model.inventory">
+                            <pn-label-template label-template="labelTemplate" />
+
+                        </div>
+                        <!-- <pn-label-template /> -->
+
+
+                    </div>
+                    <div ng-hide="col==model.page_template.cols " id="spacer" class="" style="{{getStyle(model.page_template.hSpacing)}}" ></div>
+                </div>
+            </div>
+
+
+        <!-- </div> -->
+
+
+
+
+
+        <div id="rightMargin" style="{{getStyle(model.page_template.rightMargin)}}" class=""></div>
+    </div>
+    <div id="bottomMargin" style="{{getStyle(model.page_template.bottomMargin)}}" class=""></div>
+
+</div>
+
+
+<pn-page-preview page-template="model.page_template" label-template="model.label_template"/>
+
+<!-- <div class="red container" style="height:11in;width:8.5in" >
+    <div id="topMargin" style="height:0.5in" class="blue"></div>
+    <div class="yellow" layout="row">
+        <div id="leftMargin" style="height:11in;width:0.2125in" class="orange">123</div>
+        <div id="label" class="green" style="height:1in;width:2.625in">344</div>
+        <div id="spacer" class="purple" style="height:1in;width:0.1in" >345</div>
+        <div id="label" class="green" style="height:1in;width:2.625in">344</div>
+        <div id="spacer" class="purple" style="height:1in;width:0.1in" >345</div>
+        <div id="label" class="green" style="height:1in;width:2.625in">344</div>
+        <div id="rightMargin" style="height:11in;width:0.2125in" class="orange">123</div>
+    </div>
+</div> -->

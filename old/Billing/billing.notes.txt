@@ -1,0 +1,18 @@
+Pick a plan:
+    controller: BillingController
+
+Create Billing Agreement:
+    controller: PaymentsController
+
+Cancel Subscription:
+    controller: CancelController
+
+
+
+
+billing table
+id
+ubi
+status
+amazonBillingAgreementId
+authorizationReferenceId

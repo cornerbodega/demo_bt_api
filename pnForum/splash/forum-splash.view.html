@@ -1,0 +1,58 @@
+<div class="pnGrey">
+    <!-- Remove log in buttons if user is logged in -->
+    <pn-splash-header />
+
+    <div class="container">
+
+        <div class=" pnText pnTitleText">Forum</div>
+        <pnlp />
+
+        <div class="">
+            Welcome to the ABC Traceability forum, where you can discuss, ask questions, report bugs, or show off what you can do with ABC!
+            <pnlp />
+
+            For help getting started with ABC Traceability, try the <u ng-click="toUserGuide()">User Guide</u>.
+            <!-- You can also check out our Instructional Videos to see what ABC can do. -->
+        </div>
+
+        <pnlp />
+        <fieldset>
+            <legend align="center">Forum</legend>
+            <table>
+                <tr></tr>
+                <tr class="pnStrong">
+                    <td colspan="3">Category</td>
+                    <td>Topics</td>
+                    <td>Posts</td>
+                </tr>
+                <tr ng-repeat="category in forumCategories" ng-click="toForumCategory(category)">
+                    <td colspan="3">
+                        <div class="pnText pnSmallTitleText pnStrong">
+                            {{category.label}}
+                        </div>
+                        <!-- <pnlp /> -->
+
+                        <div class="pnSmallText" layout-padding>
+                            {{category.desc}}
+                        </div>
+                    </td>
+
+                    <td>
+                        <span ng-show="!categoryTopicsCount[category.id]"><md-progress-linear md-mode="indeterminate"></md-progress-linear></span>
+                        {{categoryTopicsCount[category.id]}}
+                    </td>
+                    <td>
+                        <span ng-show="!categoryTopicPostsCount[category.id]"><md-progress-linear md-mode="indeterminate"></md-progress-linear></span>
+                        {{categoryTopicPostsCount[category.id]}}
+                    </td>
+
+                </tr>
+            </table>
+
+        </fieldset>
+    </div>
+    <pnlp />
+
+
+</div>
+<pn-footer />

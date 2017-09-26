@@ -1,0 +1,10 @@
+<pn-path-nav />
+<div class="container">
+    <form ng-submit="onSubmit($event)" onsubmit='return false;' name="inputform" novalidate>
+        <formly-form model="pnFormlyModel" fields="pnFormlyFields" options="pnFormlyOptions" form="inputform">
+            <div class="md-padding greenboard-floater">
+                <center><button ng-show="pnData" flex type="submit"  class="btn btn-raised green darken-3">Submit</button></center>
+            </div>
+        </formly-form>
+    </form>
+</div>

@@ -1,0 +1,69 @@
+    <div class="container">
+        <div layout-padding></div>
+
+        <div  ng-repeat="item in model.inventory">
+            <fieldset>
+                <legend align="center">{{item.strain}} {{item.inventorytypelabel}} {{item.id}}
+                    <span ng-click="deselect(item)">
+                        <i class="fa fa-remove"></i>
+                    </span>
+                </legend>
+                <div layout-padding></div>
+                <div align="center">
+                    <!--  -->
+                    <pn-upload-image item="item"/>
+                </div>
+                <div layout-padding></div>
+                <div class="">
+                    <div layout="row" layout-align="space-around">
+                        <div layout="column" layout-align="start center">
+
+                            <div layout-padding></div>
+                            Quantity: {{item.pnQuantitiyLabel}}
+                            <md-radio-group ng-model="selected">
+
+                                <md-radio-button ng-repeat="u in uom" ng-style="{'display':'inline'}"
+                                 ng-click="setSelectedUom(item, u.id)" ng-value="u.id">
+                                    <!-- {{u.label}}                <div layout-padding></div> -->
+                                    <span layout="row">
+                                        <span>{{u.label}}</span>
+                                        <span layout-padding></span>
+                                    </span>
+
+                                </md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </div>
+                <div class="container">
+                    <input-container>
+                    <input type="number" min="0" step="1"  ng-model="item.price" />
+                    <label>($) Asking Price</label>
+                    </input-container>
+                </div>
+                <div class="container">
+                    <input-container>
+                    <input ng-model="item.description" />
+                    <label>Description</label>
+                    </input-container>
+                </div>
+                <div layout-padding>
+
+                </div>
+                <div class="container">
+                    <input-container>
+
+                    <input class="black-text" type="date" ng-model="item.ready_by" class="form-control" >
+                    <label>Ready By</label>
+                    </input-container>
+                </div>
+                <div layout-padding>
+
+                </div>
+
+                <div layout-padding></div>
+
+            </fieldset>
+            <div layout-padding></div>
+
+        </div>
+    </div>

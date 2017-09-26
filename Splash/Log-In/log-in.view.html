@@ -1,0 +1,72 @@
+<div class="white-text pnGreenDarken3"><div layout-padding></div></div>
+<div class="white-text pnGreenDarken3">
+    <center>
+        <div><img src="img/dopelogo/dark-bg/dopelogo-dark-bg.png" style="width:auto; height:64px;"></div>
+    </center>
+</div>
+<div class="white-text pnGreenDarken3"><div layout-padding></div></div>
+
+
+
+<!-- {{user_data |json}} -->
+<div class="white">
+
+    <div class="container">
+        <div layout-padding>        </div>
+        <div class="" >
+            The Washington State Liquor and Cannabis Board has established rules that all marijuana producers, processors and retailers are required to follow.
+            <br />
+            <br />
+            All licensees are required to report activities related to the production, transportation and sale of marijuana on a daily basis as mandated by Chapter 314-55 of the WAC.
+            <br />
+            <br />
+
+
+            Only licensed facilities may access this interface. Any questions regarding licensing, rules, etc. should be directed to the WSLCB. Their website can be found here: http://lcb.wa.gov/
+            <br />
+            <br />
+
+            <!-- ABC Traceability is the property of Luchini Supercritical, Inc. -->
+            <!-- <br /> -->
+            <br />
+
+
+            Please be aware that you are now about to enter a secure area.
+            For security purposes, all activities are logged.
+        </div>
+        <div layout-padding></div>
+        <center>
+
+
+
+        <div layout-padding></div>
+
+        <div ng-repeat="field in fields">
+
+            <fieldset>
+                <legend>{{field.label}}</legend>
+                <div class="input-field col s6">
+                    <input-container>
+                    <input id="{{field.key}}" type="{{field.type}}" ng-model="model[field.key]">
+                </input-container>
+            </div>
+        </fieldset>
+        <div layout-padding></div>
+    </div>
+
+
+
+<div layout-padding ng-show="error"></div>
+
+<div ng-show="error" class="red lighten-1 white-text pnText pnTxtLg">{{error}}</div>
+<div layout-padding ></div>
+<div layout-padding ></div>
+
+<button type="submit" flex ng-click="logIn()" class="btn btn-lg">Log In</button>
+</div>
+</center>
+<div layout-padding></div><div layout-padding>
+    <center><div class="">
+        <img style="width:110px; height:auto" src="img/ssl.png">
+    </div></center></div><div layout-padding>
+    </div>

@@ -1,0 +1,59 @@
+<div class="pnGrey">
+    <!-- Remove log in buttons if user is logged in -->
+    <pn-splash-header />
+
+    <div class="container">
+
+        <!-- <div class="pnText pnTitleText">Forum</div> -->
+        <!-- <pnlp /> -->
+        <div ><span class=" pnText pnTitleText" ng-click="toForum()">Forum&nbsp;&nbsp;</span><i class="fa fa-chevron-right"></i><span class=" pnText pnTitleText" ng-click="toForumCategory(category)">&nbsp;&nbsp;{{category.label}}</span></div>
+        <pnlp />
+
+        <div layout="row" flex>
+            <div flex="15">
+                <!-- User Info -->
+                <!-- Post DateTime -->
+                <div class="">
+                    {{myFullName}}
+                </div>
+                <pnlp />
+                <div class="">
+                    {{myCompanyName}}
+                </div>
+            </div>
+            <div flex="20">
+
+            </div>
+            <!-- Post Content (formatted!) -->
+
+            <!-- Text Area -->
+            <div flex>
+                <md-input-container class=" md-block" >
+                    <label>Subject:</label>
+                    <input class="white" type="text" ng-model="subject"></md-input>
+                </md-input-container>
+                <div layout="row">
+                    <div class="">
+                        Message:
+                    </div>
+                    <div flex></div>
+                    <div ng-click="openFormattingHelp($event)">
+                        <u>Formatting Help</u>
+                    </div>
+                </div>
+                <pnlp />
+                <div class="">
+                    <textarea  class="white" style="height:100px;" ng-model="newPost">
+                    </textarea >
+                </div>
+
+                <pn-forum-post-buttons />
+            </div>
+
+        </div>
+
+
+
+
+</div>
+<pn-footer />

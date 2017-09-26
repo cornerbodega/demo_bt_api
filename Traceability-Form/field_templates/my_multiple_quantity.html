@@ -1,0 +1,15 @@
+<center><div class="container">
+    <div ng-repeat="item in model.inventory">
+        <fieldset>
+            <legend>{{to.label}} {{item.pnQuantitiyLabel}} {{item.strain}} {{item.inventorytypelabel}} {{item.id}}
+                <span ng-click="deselect(item)">
+                    <i class="fa fa-remove"></i>
+                </span>
+            </legend>
+            <input-container>
+                <input type="number" ng-model="model[options.key][item.id]" />
+            <input-container>
+        </fieldset>
+        <div layout-padding></div>
+    </div>
+</center>

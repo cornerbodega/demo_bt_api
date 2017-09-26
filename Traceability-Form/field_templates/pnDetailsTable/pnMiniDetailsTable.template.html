@@ -1,0 +1,15 @@
+<div class="">
+    <!-- {{data}} -->
+</div>
+<table>
+    <tr ng-repeat="(key, value) in data track by $index">
+        <!-- <td> {{key}} </td> -->
+        <td ng-hide="isNumber(key)"> {{key}} </td>
+        <td ng-show="isObject(value)">
+            <pn-mini-details-table2 data="value" />
+        </td>
+        <td ng-show="!isObject(value)">
+            {{ value }}
+        </td>
+    </tr>
+</table>

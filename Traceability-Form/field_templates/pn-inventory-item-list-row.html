@@ -1,0 +1,31 @@
+
+<!-- <div layout="column"    layout-gt-sm="row" layout-align="center center" layout-wrap flex> -->
+<div   layout-gt-sm="row">
+<!-- <div layout="row" layout-gt-sm="column" layout-align="center center" layout-wrap flex> -->
+    <div flex>
+        <ul>
+            <li>{{item.strain}} {{item.inventorytypelabel}}</li>
+            <li>{{item.pnQuantitiyLabel}}</li>
+        </ul>
+    </div>
+    <div  flex>
+        <ul>
+            <li ng-show="item.id">ID: {{item.id}}</li>
+            <li ng-show="item.roomLabel">{{item.roomLabel}}</li>
+        </ul>
+    </div>
+    <div flex ng-if="item.qa.potency.Total">
+        <ul>
+            <li ng-show="{{item.qa.potency.Total}}">
+                <span >{{item.qa.potency.Total}}% THC</span>
+                <span ng-if="item.qa.result">Passed QA <i class="fa fa-check"></i></span>
+            </li>
+        </ul>
+    </div>
+    <div flex ng-if="!item.qa.potency.Total">
+        <ul>
+            <li>Not Tested</li>
+        </ul>
+    </div>
+
+</div>

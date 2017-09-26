@@ -1,0 +1,45 @@
+<!-- <div class="input-field col s6">
+    <input-container>
+        <input id="{{options.key}}" type="text" ng-model="search">
+        <label for="{{options.key}}">
+        <span><i class="fa fa-search"></i> {{to.label}}</span>
+    </label>
+
+    </input-container>
+
+    <div layout-padding>
+        <span ng-show="model.inventoryitems.length > 0 ">Selected {{to.label}}: <span ng-repeat="selected in model.inventoryitems">{{selected.id}}<span ng-if="!$last">, <span></span></span>
+    </div>
+</div>
+<div class="repeater-container">
+    <div ng-show="!pnData">Loading...</div>
+    <div vs-repeat layout-padding>
+        <div ng-repeat="item in to.options|filter: search"
+        ng-click="pnMultipleSelectInventory(item)" ng-class="item.$selected ? 'md-3-line pnGreenDarken3 white-text' : ''" layout="row" >
+
+        <pn-inventory-item-list-row item="item" flex />
+    </div>
+</div> -->
+
+<fieldset ng-show="selectedCategory" class="standard">
+    <legend>{{selectedCategory.label}} ({{rows.length}}) </legend>
+    <div layout="row" flex>
+
+        <div ng-repeat="col in selectedCategory.cols" flex >
+            <span ng-click="setSort(col)">
+                {{col.label}}
+                <i ng-show="predicate" ng-class="sortHand(col)" aria-hidden="true"></i>
+            </span>
+            <input type="text" id="search" ng-model="search[col.id]">
+
+        </div>
+    </div>
+    <div vs-repeat class="repeater-container" >
+        <div layout-gt-sm="row" flex ng-repeat="row in rows|filter: search| orderBy:predicate:reverse" ng-click="toggleSelectRow(row)"  ng-class="classForRow(row)">
+            <div flex ng-repeat="col in selectedCategory.cols">
+                {{row[col.id]}}
+            </div>
+            <div layout-padding></div>
+        </div>
+    </div>
+</fieldset>

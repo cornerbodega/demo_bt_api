@@ -1,0 +1,55 @@
+<pn-path-nav />
+
+    <div class="container" >
+        <div layout-padding ></div>
+        <!-- <div class=""> -->
+        <fieldset>
+            <legend align="center">Summary </legend>
+            <div class="pnText  ">30 Days Access to Potnet </div>
+            <div class="pnText  ">Signup Fee: Waived</div>
+            <div class="pnText  ">Taxes: Included</div>
+            <div class="pnText pnSmallTitleText">Total: $444</div>
+            <!-- <div class="pnText pnSmallTitleText">Total: ${{myPlan.price}} {{myPlan.label}}</div> -->
+        </fieldset>
+        <div layout-padding></div>
+        <center>
+        <fieldset>
+            <legend align="center">Select Payment Method</legend>
+            <div pn-amazon-wallet></div>
+        </fieldset>
+        <div layout-padding></div>
+
+        <fieldset>
+            <legend align="center">Authorize Recurring Payment</legend>
+            <div pn-recurring-payments-widget ></div>
+        </fieldset>
+        <div layout-padding></div>
+
+        <div class="">
+            Please refresh the page if either Amazon box shows an error message.
+        </div>
+        <div layout-padding ></div>
+
+        <div>
+                <a
+                    disabled="true"
+
+                    ng-class="classForSubmitButton()"
+
+                    ng-click="checkout($event)"
+                >
+                    <i class="fa {{submitButton.icon}} fa-2x pull-left"></i>
+                    {{submitButton.label}}
+                </a>
+
+            <!-- <center><button ng-show="pnData" flex type="submit" class="btn btn-raised potnetRed">Submit</button></center> -->
+        </div>
+    </center>
+
+    </div>
+    <div layout-padding></div>
+    <div layout-padding></div>
+    <div layout-padding></div>
+    <div layout-padding></div>
+    <div layout-padding></div>
+<div layout-padding></div>

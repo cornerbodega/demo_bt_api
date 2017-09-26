@@ -1,0 +1,39 @@
+<center>
+    <div class="container">
+        <fieldset ng-show="selectedCategory" class="standard">
+            <legend>{{selectedCategory.label}} (<span ng-show=" model.inventoryitems">{{model.inventoryitems.length}}/</span>{{rows.length}}) </legend>
+            <div ng-show="model.inventoryitems">
+                Selected Inventory Items:
+                <span ng-repeat="item in model.inventoryitems">{{item.id}}<span ng-show="!$last">, </span>
+                </span>
+                <div layout-padding></div>
+            </div>
+            <div layout="row" flex>
+                <div  hide-xs ng-repeat="col in selectedCategory.cols" flex >
+                    <span ng-click="setSort(col)">
+                        {{col.label}}
+                        <i ng-show="predicate" ng-class="sortHand(col)" aria-hidden="true"></i>
+                    </span>
+                    <input type="text" id="search" ng-model="search[col.id]">
+                </div>
+            </div>
+
+            <div vs-repeat ng-class="to.repeaterContainerClass" >
+                <div flex ng-repeat="row in rows|filter: search| orderBy:predicate:reverse" ng-click="toggleSelectRow(row)"  ng-class="classForRow(row)" >
+                    <span layout-padding></span>
+                    <div class="container white z-depth-1">
+                        <span layout-padding></span>
+
+                        <div  flex ng-repeat="col in selectedCategory.cols">
+                            <span ng-hide="!row[col.id]">{{col.label}}:&nbsp;</span><span ng-hide="!row[col.id]">{{row[col.id]}}</span>
+                        </div>
+                        <span layout-padding></span>
+                        
+                    </div>
+
+                    <div layout-padding></div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</center>

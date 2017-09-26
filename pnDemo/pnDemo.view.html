@@ -1,0 +1,143 @@
+<div class="white-text pnGreenDarken3"><div layout-padding></div></div>
+<div class="white-text pnGreenDarken3"><center><div><img src="img/dopelogo/dark-bg/dopelogo-dark-bg.png" style="width:auto; height:75px;"></div> </center></div>
+<div class="white-text pnGreenDarken3"><div layout-padding></div></div>
+
+
+
+<!-- {{user_data |json}} -->
+<div class="white">
+
+    <div class="container">
+
+
+
+        <div layout-padding></div>
+
+        <div class="">
+            <!-- <div class="">
+                <b>Achieve Better Traceability.</b>
+            </div> -->
+            <div class="" >
+                The Washington State Liquor and Cannabis Board has established rules that all marijuana producers, processors and retailers are required to follow.
+                <br />
+                <br />
+                All licensees are required to report activities related to the production, transportation and sale of marijuana on a daily basis as mandated by Chapter 314-55 of the WAC.
+                <br />
+                <br />
+
+
+                Only licensed facilities may access this interface. Any questions regarding licensing, rules, etc. should be directed to the WSLCB. Their website can be found here: http://lcb.wa.gov/
+                <br />
+                <br />
+
+                <!-- ABC Traceability is the property of Potnet.net. -->
+                <!-- <br /> -->
+                <!-- <br /> -->
+
+
+                Please be aware that you are now about to enter a secure area.
+                For security purposes, all activities are logged.
+            </div>
+            <!-- <ul>
+                <li>All the tools needed to stay compliant with WAC 314-55.</li>
+                <li>No software to download.</li>
+                <li>Works seamlessly on your cell phone, laptop, desktop, & PC.</li>
+            </ul> -->
+
+            <div layout-padding></div>
+            <div class="">
+                 All traceability data is stored on the central WSLCB Traceability Server, so there is no need to transfer or re-enter any data when switching from another traceability system.
+            </div>
+
+        </div>
+
+        <div layout-padding></div>
+
+        <div class="">
+            <b>Try ABC Traceability free right now by filling out the form below. </b>
+        </div>
+        <div layout-padding></div>
+
+        Already have an ABC Traceability account? <u ng-click="toSignIn()"><b>Log In</b></u>
+
+        <div layout-padding></div>
+        <div layout-padding></div>
+        <center>
+
+            <fieldset ng-show="vendors">
+                <legend>502 Company Name</legend>
+                <md-autocomplete
+
+
+                md-min-length="4"
+                md-search-text-change="searchTextChange(searchText)"
+                md-search-text="searchText"
+                md-selected-item-change="selectedItemChange(item)"
+                md-items="item in querySearch(searchText)"
+                md-item-text="item.name"
+                md-min-length="0">
+                <md-item-template>
+                    <span md-highlight-text="searchText"  md-highlight-flags="^i">{{item.name}}</span>
+                </md-item-template>
+                <md-not-found>
+                    No I-502 businesses matching "{{searchText}}" were found.
+                </md-not-found>
+            </md-autocomplete>
+            </fieldset>
+
+        <div layout-padding></div>
+        <!-- <div ng-show="error" class="red lighten-1 white-text pnText pnTxtLg">{{error}}</div>
+        <div layout-padding ng-show="error"></div> -->
+        <div ng-repeat="field in fields" ng-show="model.license_number">
+            <!-- {{fields}} -->
+            <!-- {{field}} -->
+            <fieldset>
+                <legend>{{field.label}}</legend>
+                <div class="input-field col s6">
+                    <input-container>
+                    <input id="{{field.key}}" type="{{field.type}}" ng-model="model[field.key]">
+                    </input-container>
+                </div>
+            </fieldset>
+        <div layout-padding></div>
+        </div>
+
+    <!-- <div layout-padding></div> -->
+<div layout-padding>
+
+</div>
+<fieldset ng-show="model.license_number">
+    <div class="input-field col s6">
+        <input-container>
+        <div layout="row" >
+            <div class="">
+                <md-checkbox ng-click="toggleTerms()" ng-checked="terms">I agree to the </md-checkbox>
+            </div>
+            <div >
+                &nbsp;
+            </div>
+            <div class="">
+                <u ng-click="openTerms()"> Master Subscription Agreement.</u>
+            </div>
+        </div>
+        </input-container>
+    </div>
+
+</fieldset>
+
+
+
+<div layout-padding ng-show="error"></div>
+
+<div ng-show="error" class="red lighten-1 white-text pnText pnTxtLg">WSLCB Traceability Server Says: {{error}}</div>
+<div layout-padding ></div>
+<div layout-padding ></div>
+
+<button type="submit" flex ng-click="logIn()" ng-disabled="!terms" class="btn btn-lg">{{submitButton.label}}</button>
+</div>
+</center>
+<div layout-padding></div><div layout-padding>
+    <center><div class="">
+        <img style="width:110px; height:auto" src="img/ssl.png">
+    </div></center></div><div layout-padding>
+    </div>

@@ -1,0 +1,26 @@
+<div class="column">
+    <pn-path-nav  />
+    <center>
+
+
+        <div class="container">
+            <div class="input-field col s6">
+                <input-container>
+                    <input id="search" type="text" ng-model="search">
+                    <label for="search"><i class="fa fa-search"></i> Search</label>
+                </input-container>
+            </div>
+            <div ng-show="!pnData">Loading...</div>
+            <div>
+            <!-- <div vs-repeat class="repeater-container-100"> -->
+                <ul ng-repeat="lab in labs| filter:search">
+                    <li>{{lab.name}}</li>
+                    <li>{{lab.address1}}</li>
+                    <li>{{lab.city}}</li>
+                    <!-- <li>{{lab.locationtype}}</li> -->
+                </ul>
+            </div>
+        </div>
+    </center>
+
+</div>

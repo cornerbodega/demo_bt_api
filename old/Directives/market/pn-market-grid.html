@@ -1,0 +1,13 @@
+<div layout-padding flex ng-repeat="product in products | filter:search">
+    <div class="width100" layout="row">
+        <div class="pnGreyGreen pnText" layout-xs="column" ng-click="toProduct(product)" flex>
+            <div layout-padding class="pnProductGridItemStrain1" flex>
+                <span>{{product.sellerName}}</span>
+            </div>
+            <img class="pnInvThumb" ng-src="{{product.image}}">
+            <div class="pn-well pn-well-sm pn-product-detail-transparent-card">
+                <pn-selected-item  item="product" />
+            </div>
+        </div>
+    </div>
+</div>

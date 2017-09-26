@@ -1,0 +1,29 @@
+<pn-path-nav />
+<div class="white">
+<div class="container">
+    <div ng-repeat="task in tasks">
+        <table >
+            <!-- <tbody > -->
+                <tr>
+                    <td class="pnStrong" colspan="2">
+                        <i class="fa {{task.icon}}"></i> {{task.label}}
+                    </td>
+
+                </tr>
+                <tr ng-repeat="feature in task.features">
+                    <td>
+
+                    </td>
+                    <td ng-click="goTo(task.path + '/' + feature.id)">
+                        <i class="fa {{feature.icon}}"></i> {{feature.label}}
+                    </td>
+                </tr>
+            <!-- </tbody> -->
+<!--  -->
+        </table>
+        <div layout-padding>
+        </div>
+    </div>
+</div>
+</div>
+<pn-footer />

@@ -1,0 +1,31 @@
+
+<!-- <table>
+    <tr ng-repeat="detail in model[options.key]">
+        <td>
+            {{detail}}
+        </td>
+    </tr>
+</table> -->
+<div layout-padding></div>
+<div class="container">
+    <fieldset>
+        <div ng-repeat="d in data">
+            <table>
+                <tr ng-hide="pnDetailHide(key, value)" ng-repeat="(key, value) in d">
+                <!-- <tr  ng-repeat="(key, value) in d"> -->
+                    <!-- <span ng-hide="isObject(value)"> -->
+                    <td> {{key}} </td>
+                    <td>
+                        <span ng-show="!isObject(value)"> {{ valueLabeler(key, value) }}</span>
+                        <span ng-show="isObject(value)">
+                            <pn-mini-details-table data="value" />
+                        </span>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </fieldset>
+
+</div>
+<div layout-padding></div>

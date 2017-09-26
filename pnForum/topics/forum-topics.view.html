@@ -1,0 +1,79 @@
+<div class="pnGrey">
+    <!-- Remove log in buttons if user is logged in -->
+    <pn-splash-header />
+
+    <div class="container">
+
+        <div ><span class=" pnText pnTitleText" ng-click="toForum()">Forum&nbsp;&nbsp;</span><i class="fa fa-chevron-right"></i><span class=" pnText pnTitleText" >&nbsp;&nbsp;{{category.label}}</span></div>
+        <pnlp />
+        <pnlp />
+
+        <button class="btn"ng-click="toDraft()">New Topic</button>
+
+        <pnlp />
+        <pnlp />
+        <fieldset>
+            <legend align="center">Topics in {{category.label}}</legend>
+            <div layout="row">
+                <!-- <div class="pnSmallTitleText">Topics</div> -->
+                <div flex></div>
+                <div class=""><u ng-click="toSubscriptions()">Notification Subscriptions</u></div>
+            </div>
+            <pnlp />
+            <!-- {{forumTopics}} -->
+            <table>
+                <tr></tr>
+                <!-- <tr class="pnStrong"> -->
+                    <!-- <td>Topic</td>
+                    <td>Created By</td>
+                    <td>Posts</td>
+                </tr> -->
+                <div ng-show="!forumTopics">
+                    <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+                </div>
+                <tr ng-repeat="topic in forumTopics" ng-click="toForumTopic(topic)">
+                    <td>
+                        <div class="pnText pnSmallTitleText">
+                            <b>{{topic.subject}}</b>
+                        </div>
+                        <pnlp />
+
+                        <div layout="row" class="pnSmallText">
+                            <pnlp />
+
+                            <div class="">
+                                {{topic.userFullName}}
+                            </div>
+                            <pnlp />
+
+                            <div class="" ng-show="topicsPostCount[topic.topic_id] > 1">
+                                {{topicsPostCount[topic.topic_id]}} posts
+                            </div>
+                            <pnlp />
+
+                            <div class="">
+                                {{topicLabestPostDate[topic.topic_id]}}
+                            </div>
+                            <pnlp />
+
+                            <div ng-show="topicsPostCount[topic.topic_id] > 1">
+                                {{topicLabestUser[topic.topic_id]}}
+                            </div>
+                        </div>
+
+                        <pnlp />
+
+                    </td>
+
+                    <!-- <td>{{topicsPostCount[topic.topic_id]}} posts</td> -->
+
+                </tr>
+            </table>
+
+        </fieldset>
+    </div>
+    <pnlp />
+
+
+</div>
+<pn-footer />

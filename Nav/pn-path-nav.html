@@ -1,0 +1,38 @@
+<div class="white-text pnGreenDarken3">
+    <!-- <div layout-padding  ng-repeat="crumb in crumbs"> -->
+    <center>
+
+
+        <div ng-show="$last" layout-padding ng-repeat="crumb in crumbs" layout-align="center center" layout="row" flex>
+            <!-- <span ng-if="$last"> -->
+            <span ng-hide="$first" class="fa-2x" ng-click="back($index)">
+                <i class="fa fa-arrow-circle-left fa-2x"></i>
+            </span>
+            <!-- <span ng-show="$first" class="pnText potnetRed" hide-xs ng-click="">POTNET.NET</span> -->
+            <!-- {{crumb}} -->
+            <div flex >
+                <span  ng-hide="crumb.img">
+                    <a class="white-text pnText pnTitleText pnText300" ng-click="crumb.select(crumb.path)">{{crumb.label}}</a>
+                </span>
+
+                <span  ng-show="crumb.img"><img ng-src="{{crumb.img}}" style="height:100px; width:auto;"/>
+                    <a class="white-text pnText pnTitleText pnText300" ng-click="crumb.select(crumb.path)"></a>
+                </span>
+
+            </div>
+            <span  ng-hide="$first" ng-click="back($index)">
+                <!-- <i class="fa icon-fixed-width fa-3x"></i> -->
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </span>
+            <!-- <span ng-hide="$first">
+                <i class="fa fa-4x fa fa-arrow-circle-up potnetGreenText"></i>
+            </span> -->
+            <!-- <span class="pnText potnetRed" ng-show="$first"  hide-xs ng-click="toMyProfile()">{{myName}}</span> -->
+            <!-- <span layout-padding></span></i> -->
+            <!-- </span> -->
+        </div>
+    </center>
+
+</div>

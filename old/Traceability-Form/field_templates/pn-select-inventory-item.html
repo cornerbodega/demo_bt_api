@@ -1,0 +1,28 @@
+
+<!-- <div ng-show="selected" layout-padding class="green darken-3 white-text">
+    <div>Selected {{to.label}}</div>
+    <div>
+     <pn-inventory-item-list-row item="selected" flex />
+    </div>
+    <div layout-padding class="green darken-3 white-text"></div>
+</div>
+<div layout-padding></div> -->
+
+<div class="input-field col s6">
+    <input-container>
+    <input id="{{options.key}}" type="text" ng-model="search">
+        <label for="{{options.key}}">
+            <span ng-show="!selected"><i class="fa fa-search"></i> {{to.label}}</span>
+            <span ng-show="selected">Selected {{to.label}}: {{selected.id}}</span>
+        </label>
+    </input-container>
+</div>
+    <div class="repeater-container">
+        <div ng-show="!pnData">Loading...</div>
+        <div vs-repeat layout-padding>
+            <div ng-repeat="item in to.options|filter: search"
+            ng-click="select(item)" ng-class="item.id === selected.id ? 'md-3-line green darken-3 white-text' : ''" layout="row" >
+                    <pn-inventory-item-list-row item="item" flex />
+            </div>
+        </div>
+    </div>

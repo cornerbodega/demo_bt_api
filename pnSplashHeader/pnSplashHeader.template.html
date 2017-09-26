@@ -1,0 +1,61 @@
+<div class="container">
+    <div layout-padding></div>
+
+    <div layout-gt-xs="row"    flex>
+        <div ng-click="toTraceability()">
+            <img src="img/dopelogo/white-bg/dopelogo-white-bg.png" style="width:auto; height:65px;" >
+        </div>
+        <div flex>
+
+        </div>
+        <div layout="row">
+            <!-- <div ng-click="toTraceability()">
+                <img src="img/dopelogo/white-bg/dopelogo-white-bg.png" style="width:auto; height:65px;" >
+            </div> -->
+            <!-- <pnlp /> -->
+            <!-- <pnlp /> -->
+            <div flex >
+
+            </div>
+
+        </div>
+        <div layout="row">
+            <div ng-hide="isLoggedIn" style="min-height: 60px"     layout-align="center center"  layout="column">
+                <md-button class="green darken-3 white-text"  ng-click="toLogin()" class="">Log In</md-button>
+            </div>
+
+            <div ng-hide="!isLoggedIn" style="min-height: 60px"     layout-align="center center"  layout="column">
+                <md-button class=""  ng-click="toTraceability()" class="">Traceability</md-button>
+            </div>
+
+            <div ng-hide="isLoggedIn" style="min-height: 60px"      layout-align="center center"  layout="column">
+                <md-button ng-click="toSignUp()">Sign Up</md-button>
+            </div>
+
+        </div>
+        <div layout="row">
+            <div  style="min-height: 60px"     layout-align="center center"  layout="column">
+                <md-button ng-click="toDemo()">Demo</md-button>
+            </div>
+            <!-- <div  style="min-height: 60px"     layout-align="center center"  layout="column">
+                <md-button ng-click="toUserGuide()">User Guide</md-button>
+            </div> -->
+            <!-- <div  style="min-height: 60px"     layout-align="center center"  layout="column">
+                <md-button ng-click="toForum()">Forum</md-button>
+            </div> -->
+
+
+        </div>
+        <div flex>
+
+        </div>
+        <!-- <div flex layout-padding>
+
+        </div> -->
+
+
+
+    </div>
+    <div layout-padding></div>
+
+</div>

@@ -1,0 +1,27 @@
+<div class="white-text green darken-3">
+    <!-- <div layout-padding  ng-repeat="crumb in crumbs"> -->
+    <center>
+
+
+        <div ng-show="$last" layout-padding ng-repeat="crumb in crumbs" layout-align="center center" layout="row" flex>
+            <!-- <span ng-if="$last"> -->
+            <span ng-hide="$first" ng-click="back($index)">
+                <i class="fa fa-arrow-circle-left fa-2x"></i>
+            </span>
+            <!-- {{crumb}} -->
+            <div flex>
+                <span ng-show="crumb.icon"><i class="fa {{crumb.icon}} fa-2x">
+                    <a class="white-text pnText pnText20 pnText300" ng-click="crumb.select(crumb.path)">{{crumb.label}}</a>
+                </i></span>
+
+                <span ng-show="crumb.img"><img ng-src="{{crumb.img}}" />
+                    <a class="white-text pnText pnText20 pnText300" ng-click="crumb.select(crumb.path)"></a>
+                </span>
+
+            </div>
+
+            <!-- </span> -->
+        </div>
+    </center>
+
+</div>

@@ -1,0 +1,19 @@
+
+<div layout-padding>
+
+</div>
+<div class="container">
+    <fieldset>
+        <legend align="center">New User Permissions</legend>
+        <!-- <pnlp /> -->
+
+        <u ng-click="checkAll()">Check all</u> | <u ng-click="uncheckAll()">Uncheck all</u>
+        <pnlp />
+        <div ng-repeat="(perm, value) in all">
+            <md-checkbox  ng-checked="all[perm]" ng-click="togglePerm(perm)">{{perm}} </md-checkbox>
+
+        </div>
+    </fieldset>
+
+
+</div>

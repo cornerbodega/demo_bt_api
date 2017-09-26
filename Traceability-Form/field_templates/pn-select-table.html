@@ -1,0 +1,160 @@
+<div class="pnGrey">
+
+<!-- <center> -->
+    <div layout-padding >
+        {{to.desc}}
+    </div>
+    <div  class="container pnGrey">
+        <div ng-if="noData">
+            <fieldset><legend>{{to.label}}</legend>
+                <div class="">
+                    No data found
+                </div>
+            </fieldset>
+        </div>
+        <fieldset ng-hide="noData" class="pnGrey">
+            <legend>{{to.label}} <span ng-hide="to.hideSelected"><span ng-hide="!rows.length > 0">(<span ng-show="model[options.key]">{{model[options.key].length}}/</span>{{rows.length}})</span></span> </legend>
+            <div ng-hide="rows.length > 0">
+                <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+
+            </div>
+            <div class="pnGrey" >
+                <span ng-hide="to.hideSelected">
+                    &nbsp;<span ng-show=" model[options.key].length > 0">Selected: </span>
+                    <span ng-repeat="item in model[options.key]">{{item.id.substr(item.id.length - 4)}}<span ng-show="!$last">, </span>
+                </span>
+
+            </div>
+            <div class="">
+
+                <table>
+                    <tr ng-hide="!rows.length > 0" >
+                        <td ng-click="showFilters = !showFilters"><center><i class="fa fa-search"></i> Search</center></td>
+                        <td ng-hide="hideChangeColumns" ng-click="showEditCols = !showEditCols"><center><i class="fa fa-columns"></i> Columns</center></td>
+                        <td ng-hide="hideExport" ng-click="pnExport()"><center><i class="fa fa-file-excel-o"></i> Export</center></td>
+                        <!-- <td ng-click="toPrintLabels()"><i class="fa fa-print"></i> Labels</td> -->
+
+
+                    </tr>
+                </table>
+
+
+                <table>
+                    <tr ng-show="showEditCols">
+
+                        <td colspan="cols.length - 2">
+                            <div ng-repeat="col in cols">
+                                <div layout="row">
+                                    <div class="">
+                                        <md-checkbox aria-label="show columns" ng-click="toggleShowCol(col.id)" ng-checked="!showCols[col.id].hide" />
+                                    </div>
+                                    <div layout-padding>
+
+                                    </div>
+                                    <div class="">
+                                        {{col.label}}
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="table-wrapper" >
+                    <table class="table-scroll">
+                        <thead>
+                            <tr ng-show="showFilters">
+                                <th ng-repeat="col in cols" ng-hide="col.hide">
+                                    <input placeholder="{{col.label}}" type="text" id="search" ng-model="search[col.id]">
+                                </th>
+                            </tr>
+
+                            <tr ng-hide="!rows.length > 0">
+                                <th ng-repeat="col in cols" ng-hide="!!col.hide">
+                                    <div ng-click="setSort(col)">
+
+                                        <i ng-show="predicate" ng-class="sortHand(col)" aria-hidden="true"></i> {{col.label}}
+                                    </div>
+
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody >
+                            <tr dir-paginate="row in rows |filter: search| orderBy:predicate:reverse|itemsPerPage: itemsPerPage" row-id="{{ row.id }}" ng-click="select($event, row)" ng-class="classForRow(row)">
+                                <td ng-repeat="(id,col) in showCols" ng-hide="!!col.hide">
+                                    <span ng-if="col.image">
+                                        <img ng-if="row[col.id]!=0" ng-src="{{row[col.id]}}" style="width:auto;height:100px;">
+                                    </span>
+                                    <span ng-show="col.actionButton">
+                                        <div aria-label="label" class="btn btn-lg" ng-click="actionButtons[col.id].onClick(row)">
+                                            <i class="fa {{actionButtons[col.id].icon}} fa-2x "></i>
+                                        </div>
+                                        <div layout-padding>
+
+                                        </div>
+                                    </span>
+
+                                    <span ng-hide="col.image">{{row[col.id]}}</span>
+                                    <span ng-show="col.notes">
+                                        <span ng-repeat="note in notesByConcerningId[row.id]">
+                                            {{note.content}}&nbsp;
+                                        </span>
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+                <table ng-show="itemsPerPage < rows.length">
+                    <tr>
+
+                    </tr>
+                    <tr>
+                        <td><dir-pagination-controls></dir-pagination-controls>
+                        <!-- <td> -->
+                            <!-- <div flex layout="row"> -->
+                                <!-- <div class="" flex>
+
+                                </div> -->
+                                <div class="">
+
+                                    <md-button ng-click="showAll()">Show All</md-button>
+                                </div>
+                            <!-- </div> -->
+
+                        </td>
+                    </tr>
+
+                </table>
+                <table ng-show="itemsPerPage === rows.length">
+                    <tr>
+                        <td>
+                            <!-- <div flex layout="row"> -->
+                                <!-- <div class="" flex>
+
+                                </div> -->
+                                <div class="">
+                                    <md-button ng-click="collapse()">Show Fewer</md-button>
+                                </div>
+                            <!-- </div> -->
+                        </td>
+                    </tr>
+
+
+                </table >
+
+            </div>
+
+        </fieldset>
+    </div>
+
+
+<!-- </center> -->
+</div>

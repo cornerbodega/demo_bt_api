@@ -1,0 +1,70 @@
+<pn-path-nav />
+<div class="white">
+    <center>
+        <div class="container">
+            <div layout-padding></div>
+            <table>
+                <!-- <tr>
+                    <td>
+                        UBI
+                    </td>
+                    <td>
+                        {{ubi}}
+                    </td>
+                </tr> -->
+                <tr>
+                    <td>
+                        Authorization Reference ID
+                    </td>
+                    <td>
+                        {{authorizationReferenceId}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                Access Status
+                    </td>
+                    <td>
+                Active
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                Access Purchased
+                    </td>
+                    <td>
+                        <!-- {{daysLeft}} -->
+                {{myMembership.at | date}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                Days Remaining in Billing Period
+                    </td>
+                    <td>
+                        <!-- {{daysLeft}} -->
+                {{daysLeft}}
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <td>
+                        Cancel Membership
+                    </td>
+                    <td>
+                        <a ng-click="toCancel()">Cancel</a>
+                    </td>
+                </tr> -->
+            </table>
+            <div >
+
+            </div>
+            <div class="">
+
+            </div>
+        </div>
+    </center>
+    <div layout-padding>
+
+    </div>
+</div>
+<pn-footer />

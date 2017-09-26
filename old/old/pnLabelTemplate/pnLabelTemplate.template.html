@@ -1,0 +1,100 @@
+<!-- {{labelTemplate}} -->
+<!-- <div >
+<canvas  pn-pixi-labels-canvas></canvas >
+</div> -->
+<!-- {{page_template.labelSize}} -->
+<center>
+    <div>
+        <div class="red" flex layout="column"  pn-html-to-pdf id="pnLabelPage" style="{{getStyle(page_template.labelSize)}}">
+
+            <div class="blue" style="height:{{getTopPadding() + 40}}px ; ">
+                topPadding: {{getTopPadding()}}
+                pageHeight: {{pnLabelPageHeight}}
+                contentHeight: {{pnLabelContentHeight}}
+            </div>
+            <div class="green" id="pnLabelContent">
+                <div class=""  ng-show="inventory" ng-repeat="(zone, models) in labelTemplate" flex>
+
+                    <div ng-repeat="model in models"  >
+                        <!-- container -->
+
+                        <div ng-show="model.type === 'container'">
+                            <div class="" layout="row" flex  >
+                                <div  flex="50" ng-repeat="(key, col) in model.columns">
+                                    <div ng-repeat="(k, c) in col">
+                                        <div style="{{getFormattingStyle(c)}}">
+
+                                            <div ng-if="c.type!='barcodeImage'" class="">
+                                                <div ng-if="c.type==='item'">
+                                                    <span ng-if="!c.hide">{{c.label}}:</span> {{inventory[c.key]}}
+                                                </div>
+                                            </div>
+                                            <div  ng-if="c.type==='barcodeImage'">
+                                                <pn-barcode item="c" barcode="inventory.id" />
+                                            </div>
+                                            <div ng-if="c.type==='image'">
+                                                <img ng-src="{{c.image}}"  width="{{c.imageWidthPx}}">
+                                            </div>
+                                            <div ng-if="c.type==='pnCustomText'">
+                                                {{c.customText}}
+                                            </div>
+                                        </div>
+                                        <!-- container within a container -->
+                                        <div ng-show="c.type === 'container'">
+                                            <div class="" layout="row" flex  >
+                                                <div  flex="50" ng-repeat="(key, col) in c.columns">
+                                                    <div ng-repeat="(k, c) in col">
+                                                        <div style="{{getFormattingStyle(c)}}">
+
+                                                            <div ng-if="c.type!='barcodeImage'" class="">
+                                                                <div ng-if="c.type==='item'">
+                                                                    <span ng-if="!c.hide">{{c.label}}:</span> {{inventory[c.key]}}
+                                                                </div>
+                                                            </div>
+                                                            <div ng-if="c.type==='barcodeImage'">
+                                                                <pn-barcode item="c" barcode="inventory.id" />
+                                                            </div>
+                                                            <div ng-if="c.type==='image'">
+                                                                <img ng-src="{{c.image}}"  width="{{c.imageWidthPx}}">
+                                                            </div>
+                                                            <div ng-if="c.type==='pnCustomText'">
+                                                                {{c.customText}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Not in a container -->
+                        <div style="{{getFormattingStyle(model)}}">
+                            <div ng-if="model.type==='item'" >
+                                <span  ng-if="!model.hide">{{model.label}}:</span> {{inventory[model.key]}}
+                            </div>
+                            <div ng-if="model.type==='barcodeImage'">
+                                <!-- {{model}} -->
+                                <pn-barcode item="model" barcode="inventory.id" />
+                            </div>
+                            <div ng-if="model.type==='image'">
+                                <img ng-src="{{model.image}}"  width="{{model.imageWidthPx}}">
+                            </div>
+                            <div ng-if="model.type==='pnCustomText'">
+                                {{model.customText}}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</center>

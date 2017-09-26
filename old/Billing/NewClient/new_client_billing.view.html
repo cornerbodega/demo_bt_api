@@ -1,0 +1,137 @@
+<!-- <pn-path-nav /> -->
+
+<!-- <center> -->
+
+<div class="white">
+    <div class="container">
+        <div layout-padding></div>
+
+        <div class="">
+            <img src="img/abc/abcbanner.svg">
+        </div>
+        <div layout-padding></div>
+
+        <div>
+        </div>
+
+        <!-- <div class="pnText pnSmallTitleText"> <center>Achieve Better Compliance with Washington's fastest-growing traceability software</center></div> -->
+
+        <div layout-padding></div>
+
+        <table>
+            <tr></tr>
+            <tr>
+                <th></th>
+                <th>ABC Traceability</th>
+                <th>Free BioTrack</th>
+                <th>Paid BioTrack</th>
+            </tr>
+            <tr>
+                <td>All the tools to stay WAC 314-55 compliant</td>
+                <td><i class="fa fa-check-circle"></i></td>
+                <td><i class="fa fa-check-circle"></i></td>
+                <td><i class="fa fa-check-circle"></i></td>
+            </tr>
+
+            <tr>
+                <td>Works On Any Device</td>
+                <td><i class="fa fa-check-circle"></i></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>One-Click Export to Excel (.csv)</td>
+                <td><i class="fa fa-check-circle"></i></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Easily Undo Mistakes</td>
+                <td><i class="fa fa-check-circle"></i></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Employee Timeclock</td>
+                <td><i class="fa fa-check-circle"></i></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Producer B2B Exchange</td>
+                <td><i class="fa fa-check-circle"></i></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Made in Washington</td>
+                <td><i class="fa fa-check-circle"></i></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <div layout-padding></div>
+        <div layout-padding></div>
+
+        <div   class="pnText pnText20">
+            <div class="">
+                <fieldset>
+                    <legend align="center">
+                        Choose the Best Payment Option for Your Business
+                    </legend>
+
+
+                    <div layout="row" layout-align="space-around">
+                        <div layout="column" layout-align="start center">
+
+                            <div layout-padding>
+
+                            </div>
+                            <md-radio-group ng-model="selected">
+
+                                <md-radio-button  ng-repeat="plan in plans"
+                                 ng-click="setSelectedPlan(plan)" ng-value="plan.id">
+                                <span>
+                                    <b>{{plan.label}}</b>: ${{plan.price}}
+
+                                </span>
+                            </md-radio-button>
+
+
+                        </md-radio-group>
+
+                    </div>
+                </div>
+
+
+            </fieldset>
+
+            <div layout-padding></div>
+
+        </div>
+
+
+        <div layout-padding></div>
+        <div ng-show="selectedPlan" >
+
+            <!-- <div class="">
+                <a ng-click="openTerms()">Potnet Terms of Service and Privacy Policy</a>
+            </div> -->
+
+            <div class="">
+                <center><pn-pay-with-amazon-button /></center>
+
+            </div>
+            <div layout-padding></div>
+            <center><div class="">
+                <img style="width:110px; height:auto" src="img/ssl.png">
+            </div></center>
+            <!-- <center><div class="">
+                Cancel any time
+            </div></center> -->
+        </div>
+    </div>
+
+</div>
+    <!-- </center> -->

@@ -1,0 +1,14 @@
+<pn-path-nav />
+<div class="container">
+    <div flex ng-repeat="listing in wtb" layou="column" layout-gt-sm="row">
+        <div flex>
+            <pn-user-profile-link ubi="listing.creator_ubi" />
+        </div>
+        <div flex>
+            {{listing.message}}
+        </div>
+        <div class="">
+            {{listing.at}}
+        </div>
+    </div>
+</div>

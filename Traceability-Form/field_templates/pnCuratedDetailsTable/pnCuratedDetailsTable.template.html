@@ -1,0 +1,67 @@
+
+<!-- <table>
+    <tr ng-repeat="detail in model[options.id]">
+        <td>
+            {{detail}}
+        </td>
+    </tr>
+</table> -->
+<div layout-padding>
+
+</div>
+<div class="container">
+    <pn-print pn-type="pnCuratedDetailsTable" />
+    <fieldset id="pnCuratedDetailsTable">
+        <!-- {{data}} -->
+        <div ng-repeat="d in data">
+            <!-- {{d}} -->
+            <table>
+                <tr >
+                    <td ng-show="showActionButtons" colspan="2" >
+                        <center>
+                            <span ng-show="col.actionButton" ng-repeat="(id, col) in horizontalCols">
+                                <div
+                                    aria-label="label"
+                                    class="btn btn-lg"
+                                    ng-show="actionButtons[col.id].showOn(d)"
+                                    ng-click="actionButtons[col.id].onClick(d)">
+                                    <i class="fa {{actionButtons[col.id].icon}} fa-2x pull-left "></i>
+                                        {{actionButtons[col.id].label}}
+                                </div>
+                                <div layout-padding>
+
+                                </div>
+                                <!-- <div
+
+                                    class="btn btn-lg"
+                                    ng-click="submit($event)"
+                                >
+                                    <i class="fa {{submitButton.icon}} fa-2x pull-left "></i>
+                                    {{submitButton.label}}
+                                </div> -->
+                            </span>
+                        </center>
+                    </td>
+                </tr>
+                <tr ng-if="d[col.id] && !col.hide"  ng-repeat="(id, col) in horizontalCols">
+
+                    <td  ng-hide="col.noLabel" >{{col.label}}</td>
+                    <td  ng-hide="col.image || col.barcode">
+                        {{d[col.id]}}
+                        <span layout-padding ng-if="col.id === 'id'"><pn-barcode barcode="d.id" /></span>
+                    </td>
+                    <td colspan="2" ng-hide="" ng-if="showImage(col, d[col.id])">
+                        <center><img ng-src="{{d[col.id]}}" style="width:auto;height:300px ;" /></center>
+                    </td>
+
+
+                </tr>
+
+            </table>
+        </div>
+    </fieldset>
+
+</div>
+<div layout-padding>
+
+</div>

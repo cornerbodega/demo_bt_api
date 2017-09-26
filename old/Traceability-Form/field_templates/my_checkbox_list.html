@@ -1,0 +1,17 @@
+<center>
+    <div class="container">
+
+    <fieldset>
+        <legend>{{to.label}}</legend>
+            <div ng-repeat="item in model[pnRepeat]">
+
+            <center>
+                <md-checkbox aria-label="{{to.label}}" ng-model="model[options.key]">{{item.id}}</md-checkbox>
+            </center>
+        </div>
+
+    </fieldset>
+
+
+</div>
+</center>

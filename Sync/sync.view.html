@@ -1,0 +1,31 @@
+<pn-path-nav />
+<!-- <div layout-padding></div> -->
+<!-- <div layout-padding></div> -->
+<div class="white ">
+    <div class="container">
+        <div layout-padding></div>
+        <div class="">
+
+        </div>
+        <div class="">
+            1. Deleting Local Data...<span ng-show="!deleted_local_data"></span><span ng-show="deleted_local_data">...Complete.</span>
+        </div>
+        <div class="">
+            2. Requesting Data From WSLCB Traceability Server...<span ng-show="inventory_complete">...Complete.</span>
+        </div>
+        <div class="">
+            3. Saving Data From WSLCB Traceability Server...<span ng-show="save_inventory_pos">...Complete.</span>
+        </div>
+        <div layout-padding></div>
+
+        <div ng-show ="save_inventory_pos">
+            Synchronization Complete.
+        </div>
+        <div layout-padding></div>
+        <span ng-show="!save_inventory_pos">
+            <pn-loading-gears size="small" />
+
+        </span>
+    </div>
+
+</div>

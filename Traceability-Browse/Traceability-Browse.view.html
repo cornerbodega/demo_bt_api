@@ -1,0 +1,50 @@
+<pn-path-nav />
+<div class="container">
+    <div class="repeater-container-100">
+        <div ng-show="!pnData">
+            <center>Loading...</center>
+        </div>
+        <div ng-show="pnData">
+            <!-- {{rows.length}} -->
+            <div id="pnActions">
+                <table>
+                    <tr>
+                        <td ng-repeat="action in actions">
+                            <a ng-click="action.init(getSelected())">{{}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <table  >
+                <tr>
+                    <th ng-repeat="col in cols">
+                        <span ng-click="setSort(col)">
+                            {{col.label}}
+                            <i ng-show="predicate" ng-class="sortHand(col)" aria-hidden="true"></i>
+                            <!-- <i class="fa fa-hand-o-up" aria-hidden="true"></i> -->
+                        </span>
+                        <input type="text" id="search" ng-model="search[col.id]">
+                    </th>
+                    <!-- <th>
+                    <md-select ng-model="filters" ng-change="updateFilters()">
+                        <md-option ng-repeat="urd in uniqeRowData(rows)" >{{urd}}</md-option>
+                    </md-select>
+                    </th> -->
+                </tr>
+                <tr ng-repeat="row in rows|filter: search| orderBy:predicate:reverse" ng-click="toggleSelectRow(row)"  ng-class="classForRow(row)">
+                    <!-- <td style="text-align:center; vertical-align:middle" layout-align="center center">
+
+                        <center><md-checkbox flex style="text-align:center; vertical-align:middle" ng-model="isSelected[row]" ng-click="selectRow(row)" aria-label="Select Row"></md-checkbox></center>
+                    </td> -->
+                    <td ng-repeat="col in cols">
+                        {{row[col.id]}}
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

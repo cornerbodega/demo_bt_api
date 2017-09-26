@@ -1,0 +1,41 @@
+<div layout="row" flex layout-padding>
+        <div ng-show="item.image"  flex="33" >
+            <img class="height100pc pnImageStretch" ng-src="{{item.image}}">
+        </div>
+    <div layout="column" flex >
+        <div>
+            <div class="pnProductGridItemPriceWeight" ng-if="item.inventorytypeInfo.weighable">
+                {{item.remaining_quantity}} grams
+            </div>
+            <div class="pnProductGridItemPriceWeight" ng-if="!item.inventorytypeInfo.weighable">
+                {{item.remaining_quantity}} x {{item.usable_weight}} gram packages
+            </div>
+        </div>
+        <div layout="row">
+            <ul>
+                <li>Barcode: {{item.id}}</li>
+                <li>Strain: <a>{{item.strain}}</a></li>
+                <li ng-if="item.productname">Productname: {{item.productname}}</li>
+                <li>Quantity: {{item.remaining_quantity}}</li>
+                <li ng-if="item.usable_weight">Usable Weight: {{item.usable_weight}}</li>
+            </ul>
+            <ul>
+                <li layout-padding></li>
+            </ul>
+            <ul ng-show="item.qa.potency.Total">
+                <li>Total THC: {{item.qa.potency.Total}}%</li>
+                <li>CBD: {{item.qa.potency.CBD}}%</li>
+                <li ng-if="item.qa.moisture.moisture">Moisture: {{item.qa.moisture.moisture}}%</li>
+            </ul>
+            <ul>
+                <li layout-padding></li>
+            </ul>
+            <ul ng-show="item.qa.bacteria">
+                <li>Aerobic Bacteria: {{item.qa.bacteria.aerobic_bacteria}}</li>
+                <li>Bile Tolerant: {{item.qa.bacteria.bile_tolerant}}</li>
+                <li>Coliforms: {{item.qa.bacteria.coliforms}}</li>
+                <li>Tested By: <a>{{item.qa.lab_license_label}}</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

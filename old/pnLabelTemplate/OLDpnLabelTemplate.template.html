@@ -1,0 +1,49 @@
+<center>
+<div>
+    <div flex layout="column" layout-align="center center" class="text-center" pn-html-to-pdf id="pnLabelPage" style="{{getStyle(page_template.labelSize)}}">
+    <!-- <div id="pnLabelPage" style="{{getStyle(page_template.labelSize)}}"> -->
+        <div ng-show="inventory" ng-repeat="(zone, models) in labelTemplate" flex>
+            <div ng-repeat="model in models"  >
+                <div ng-show="model.type === 'container'">
+                    <div class="" layout="row" flex layout-align="center center" >
+                        <div  flex="50" ng-repeat="(key, col) in model.columns">
+                            <div  ng-repeat="(k, c) in col">
+                                <div ng-if="c.type!='barcodeImage'" class="">
+                                    <div ng-if="c.type==='item'">
+                                        <span ng-if="!c.hide">{{c.label}}:</span> {{inventory[c.key]}}
+                                    </div>
+                                </div>
+                                <div ng-if="c.type==='barcodeImage'">
+                                    <pn-barcode barcode="inventory.id" />
+                                </div>
+                                <div ng-if="c.type==='image'">
+                                    <img ng-src="{{c.image}}"  width="{{c.imageWidthPx}}">
+                                </div>
+                                <div ng-if="c.type==='pnCustomText'">
+                                    {{c.customText}}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="model.type==='item'">
+                    <span ng-if="!model.hide">{{model.label}}:</span> {{inventory[model.key]}}
+                </div>
+                <div ng-if="model.type==='barcodeImage'">
+                    <pn-barcode barcode="inventory.id" />
+                </div>
+                <div ng-if="model.type==='image'">
+                    <img ng-src="{{model.image}}"  width="{{model.imageWidthPx}}">
+                </div>
+                <div ng-if="model.type==='pnCustomText'">
+                    {{model.customText}}
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+    </center>

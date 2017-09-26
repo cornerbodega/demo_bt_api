@@ -1,0 +1,52 @@
+<div class="pnGrey">
+    <!-- Remove log in buttons if user is logged in -->
+    <pn-splash-header />
+
+    <div class="container">
+
+        <div ><span class=" pnText pnTitleText" ng-click="toForum()">Forum&nbsp;&nbsp;</span><i class="fa fa-chevron-right"></i><span class=" pnText pnTitleText" >&nbsp;&nbsp;Subscriptions</span></div>
+        <!-- <pnlp /> -->
+        <!-- <pnlp /> -->
+
+
+
+        <pnlp />
+
+
+        <!-- {{forumTopics}} -->
+        <fieldset>
+            <legend align="center">My Forum Subscriptions</legend>
+            <table>
+                <!-- <tr></tr> -->
+                <!-- <tr class="pnStrong"> -->
+                    <!-- <td>Topic</td>
+                    <td>Created By</td>
+                    <td>Posts</td>
+                </tr> -->
+
+                <tr ng-repeat="topic in subscriptions" >
+                    <td>
+                        <md-checkbox aria-label="forum topic" ng-model="model[topic.topic_id]">
+                            {{topic.subject}}
+                        </md-checkbox>
+                    </td>
+
+                    <!-- <td>{{topicsPostCount[topic.topic_id]}} posts</td> -->
+
+                </tr>
+            </table>
+        </fieldset>
+
+        <pnlp />
+        <pnlp />
+        <center>
+            <button class="btn btn-lg" ng-click="saveChanges()">Save Changes</button>
+        </center>
+        <pnlp />
+
+    </div>
+    <pnlp />
+
+
+</div>
+<pn-footer />

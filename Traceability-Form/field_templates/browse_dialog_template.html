@@ -1,0 +1,78 @@
+<md-dialog aria-label="Mango (Fruit)">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{item.titleLabel}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/close_icon/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:800px;max-height:810px; ">
+      <md-tabs md-selected="selectedIndex" md-dynamic-height md-border-bottom>
+
+
+          <md-tab label="Notes">
+            <md-content class="md-padding">
+              <!-- <h1 class="md-display-2">Notes</h1> -->
+
+              <!-- <div ng-if="notes.length === 0">
+
+                  <div ng-init="selectedIndex =1">
+
+                  </div>
+              </div> -->
+              <div ng-repeat="note in notes">
+                  <div layout="row">
+                      <div class="">
+                          {{note.content}}
+                      </div>
+                      <div layout-padding>
+
+                      </div>
+                      <div ng-click="deleteNote(note)">
+                          <i class="fa fa-remove" ></i>
+                      </div>
+                  </div>
+              </div>
+            </md-content>
+          </md-tab>
+        <md-tab label="New Note">
+          <md-content class="md-padding">
+            <!-- <h1 class="md-display-2">Notes</h1> -->
+            <div class="">
+                <textarea  class="white" style="height:100px;" ng-model="newPost">
+                </textarea >
+            </div>
+            <div layout="row">
+
+                <md-input-container>
+                    <button class="btn btn-medium" ng-click="post()">Post</button>
+                    <!-- <md-button ng-click="preview()">Preview</md-button> -->
+
+                </md-input-container>
+
+            </div>
+          </md-content>
+        </md-tab>
+
+
+  </md-tabs>
+
+    </md-dialog-content>
+
+    <!-- <md-dialog-actions layout="row">
+      <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+        More on Wikipedia
+      </md-button>
+      <span flex></span>
+      <md-button ng-click="answer('not useful')" >
+        Not Useful
+      </md-button>
+      <md-button ng-click="answer('useful')" style="margin-right:20px;" >
+        Useful
+      </md-button>
+    </md-dialog-actions> -->
+  </form>
+</md-dialog>

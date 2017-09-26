@@ -1,0 +1,67 @@
+<div class="container">
+
+</div>
+<md-tabs md-selected="data.selectedIndex" flex md-dynamic-height md-border-bottom>
+    <!-- <md-tab label="Select a Product">
+        <pn-product-select-create-wts-wizard flex />
+    </md-tab> -->
+    <!-- <md-tab ng-disabled="!ia.qaTesting" label="QA Testing">
+        <div class="md-padding">
+            <div layout="vertical-align" layout-margin>
+                <pn-qa-confirm-create-wts-wizard />
+                <pn-to-qa-wizard-button  />
+                <div class="">
+                    <button layout="row" ng-click="pnGoToNextStepCreateWizard('upload')" layout-align="center center" class="pnGreyGreen  btn btn-xl white-text" ng-show="selectedItemCreateWts.image">
+                        NEXT
+                    </button>
+                </div>
+            </div>
+
+
+            <br />
+
+        </div>
+    </md-tab> -->
+    <md-tab ng-disabled="!ia.uploadImage" label="Upload Image">
+        <div class="md-padding">
+            <div layout="row" layout-margin>
+                <div>
+                    <pn-upload-image-pane-create-wts-wizard />
+                </div>
+                <div class="">
+                    <button layout="row" ng-click="pnGoToNextStepCreateWizard('upload')" layout-align="center center" class="pnGreyGreen  btn btn-xl white-text" ng-show="selectedItemCreateWts.image">
+                        NEXT
+                    </button>
+                </div>
+            </div>
+
+            <pn-wrapper-product-grid-item product="selectedItemCreateWts">
+            <!-- <div class="pn-well pn-well-sm white" layout="row" layout-padding>
+                <pn-item-product-select-create-wts-wizard  item="selectedItemCreateWts" />
+            </div> -->
+            <!-- <pn-item-product-select-create-wts-wizard item="selectedItemCreateWts" /> -->
+            <br />
+            <!-- <div class="width100" pn-background-image="{{selectedItemCreateWts.image}}"></div> -->
+
+        </div>
+    </md-tab>
+    <md-tab ng-disabled="!ia_DescriptionPrice" label="Description and Price">
+        <md-content class="md-padding">
+            <div layout="row" ng-click="pnCreateWts()" layout-align="center center" class="pnGreyGreen  pn-next-button-create-wts-wizard btn btn-xl" ng-show="pnDescPriceValid">
+                <center><a>CREATE</a></center>
+            </div>
+            <pn-desc-price-create-wts-wizard />
+            <pn-wrapper-product-grid-item product="selectedItemCreateWts">
+
+            <!-- <div class="width100" layout="row" >
+                <div flex pn-background-image="{{selectedItemCreateWts.image}}">
+                    <div>
+                        <pn-product-grid-item  product="selectedItemCreateWts" />
+                    </div>
+                </div>
+            </div> -->
+            <!-- <pn-item-product-select-create-wts-wizard item="selectedItemCreateWts" /> -->
+
+        </md-content>
+    </md-tab>
+</md-tabs>

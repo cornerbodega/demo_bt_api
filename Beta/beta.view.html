@@ -1,0 +1,139 @@
+<!--
+<div class="white container">
+<center>
+<div class="">
+Thank you for agreeing to participate in our traceability software beta test!
+<br />
+You were of the first 5 people to respond to the invitation from {{affiliate}}
+</div>
+<div layout-padding>
+
+</div>
+<div class="">
+<b> Join the beta test now by filling out the form below</b>
+</div>
+
+
+
+</center>
+
+</div>
+<div layout-padding></div>    <div layout-padding></div>    <div layout-padding></div>    <div layout-padding></div>    <div layout-padding></div>    <div layout-padding></div>    <div layout-padding></div>    <div layout-padding></div>    <div layout-padding></div>
+
+</div> -->
+<div class="white-text pnGreenDarken3"><div layout-padding></div></div>
+<div class="white-text pnGreenDarken3"><center><div><img src="img/potlogo.svg" style="width:auto; height:100px;"></div> </center></div>
+<div class="white-text pnGreenDarken3"><div layout-padding></div></div>
+
+
+
+<!-- {{user_data |json}} -->
+<div class="white">
+
+    <div class="container">
+        <div layout-padding>
+
+        </div>
+        <div class="" >
+            <b>Thank you for agreeing to participate in our traceability software beta test!</b>
+            <br />
+            <div ng-show="affiliate">
+                You were of the first 5 people to respond to the invitation from {{affiliate}}
+            </div>
+
+        </div>
+
+        <div layout-padding></div>
+
+        <div class="">
+            <div class="">
+                <b> We believe traceability should be easy</b>
+            </div>
+
+            <ul>
+                <li>No software to download</li>
+                <li>Works seamlessly on your cell phone, laptop, desktop, & PC</li>
+            </ul>
+
+
+            <div class="">
+                Manage QA, inventory manifests, transfers and more!
+            </div>
+
+
+        </div>
+
+        <div layout-padding></div>
+
+        <div class="">
+            <b>Join the beta test now by filling out the form below</b>
+        </div>
+
+        <div layout-padding></div>
+        <center>
+
+            <fieldset ng-show="vendors">
+                <legend>I-502 Business</legend>
+                <md-autocomplete
+
+
+                md-min-length="4"
+                md-search-text-change="searchTextChange(searchText)"
+                md-search-text="searchText"
+                md-selected-item-change="selectedItemChange(item)"
+                md-items="item in querySearch(searchText)"
+                md-item-text="item.name"
+                md-min-length="0">
+                <md-item-template>
+                    <span md-highlight-text="searchText"  md-highlight-flags="^i">{{item.name}}</span>
+                </md-item-template>
+                <md-not-found>
+                    No I-502 businesses matching "{{searchText}}" were found.
+                </md-not-found>
+            </md-autocomplete>
+        </fieldset>
+
+        <div layout-padding></div>
+        <!-- <div ng-show="error" class="red lighten-1 white-text pnText pnTxtLg">{{error}}</div>
+        <div layout-padding ng-show="error"></div> -->
+        <div ng-repeat="field in fields">
+            <!-- {{fields}} -->
+            <!-- {{field}} -->
+            <fieldset>
+                <legend>{{field.label}}</legend>
+                <div class="input-field col s6">
+                    <input-container>
+                    <input id="{{field.key}}" type="{{field.type}}" ng-model="model[field.key]">
+                </input-container>
+            </div>
+        </fieldset>
+        <div layout-padding></div>
+    </div>
+
+    <!-- <div layout-padding>
+
+</div> -->
+
+
+
+
+<div layout-padding ng-show="error"></div>
+
+<div ng-show="error" class="red lighten-1 white-text pnText pnTxtLg">{{error}}</div>
+<div layout-padding ></div>
+<div layout-padding ></div>
+
+<button type="submit" flex ng-click="signUpForBeta()" class="btn btn-lg">Access Free Beta</button>
+</div>
+<div layout-padding ></div>
+<div layout-padding ></div>
+<center>
+    <div class="pnText">{{success}}</div>
+</center>
+
+</center>
+<div layout-padding></div><div layout-padding>
+    <center><div class="">
+        <img style="width:110px; height:auto" src="img/ssl.png">
+    </div></center></div><div layout-padding>
+    </div>

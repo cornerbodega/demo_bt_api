@@ -1,0 +1,39 @@
+<div class="pn-well pn-well-sm pn-product-detail-transparent-card width100" >
+    <div layout="column" >
+        <div layout="column">
+            <div layout="column">
+                <div class="pnProductGridItemStrain">{{product.strain}} {{product.inventorytypeInfo.label}}</div>
+
+            </div>
+
+            <div class="pnProductGridItemPriceWeight" ng-if="product.inventorytypeInfo.weighable">
+                {{product.remaining_quantity}} grams <span ng-show="product.price">for ${{product.price}}</span>
+
+            </div>
+            <div class="pnProductGridItemPriceWeight" ng-if="!product.inventorytypeInfo.weighable">
+                {{product.remaining_quantity}} x {{product.usable_weight}} gram packages <span ng-show="product.price">for ${{product.price}}</span>
+
+            </div>
+            <!-- <div class="pnProductGridItemPriceWeight">
+                {{product.id}}
+            </div> -->
+            <!-- <div ng-if="product.sellerInfo.name" class="pnProductGridItemPriceWeight">
+                {{product.timeLabel}}
+            </div> -->
+            <!-- <div ng-if="!product.sellerInfo.name" class="pnProductGridItemPriceWeight">
+                {{product.sessiontimelabel}}
+            </div> -->
+            <!-- <div ng-if="product.sellerInfo.name" class="pn-product-grid-seller-info">
+                {{product.sellerInfo.name}} <span ng-if="product.sellerInfo.license">({{product.sellerInfo.license}})
+            </div> -->
+        </div>
+        <div class="">
+            <div class="pn-product-grid-seller-info">{{product.id}}</div>
+            <pn-detail-product-detail product="product" />
+        </div>
+        <div class="">
+            {{product.desc}}
+        </div>
+</div>
+
+</div>

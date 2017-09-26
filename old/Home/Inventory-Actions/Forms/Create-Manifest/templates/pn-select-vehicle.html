@@ -1,0 +1,11 @@
+<!-- <md-input-container flex> -->
+    <!-- <label for="vehicle">Vehicle</label> -->
+    <!-- {{vehicles}} -->
+    <md-select  id="vehicle" placeholder="Vehicle" ng-model="createManifestForm.vehicle">
+        <!-- <md-option disabled="true">Vehicle</md-option> -->
+        <md-option ng-repeat="vehicle in vehicles" value="{{vehicle.id}}">
+            <!-- {{vehicle.nickname}} {{vehicle.color}} {{vehicle.year}} {{vehicle.model}} {{vehicle.plate}} -->
+            {{vehicle.label}}
+        </md-option>
+    </md-select>
+<!-- </md-input-container> -->
