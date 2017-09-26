@@ -1,9 +1,9 @@
 <?php
 
 $host="localhost"; // Host name
-$dbun="potnetne_potuser"; // Mysql username
+$dbun="merhone_potuser"; // Mysql username
 $dbpw="suzi99"; // Mysql password
-$mydb="potnetne_potnet"; // Database name
+$mydb="merhone_bt_demo_db"; // Database name
 // $mytbl="vendors"; // Table name
 $time = time();
 
